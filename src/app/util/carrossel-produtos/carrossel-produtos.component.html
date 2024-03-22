@@ -1,0 +1,9 @@
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <div class="row">
+      <div class="col" *ngFor="let card of cards">
+        <app-card-produtos [card]="card"></app-card-produtos>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
