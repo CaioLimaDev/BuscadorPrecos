@@ -1,0 +1,76 @@
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<nav class="headerDefault navbar navbar-expand-lg ">
+  <div class="logoItem">
+    <h2 class="navbar-brand" href="#"><b>Buscador de <br>Preços</b></h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="containerBusca">
+    <div class="itensBuscaContainer input-group">
+      <input type="text" class="barraBusca form-control" aria-label="Text input with segmented dropdown button">
+      <button type="button" class="botaoDropdown btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+        aria-expanded="false" style="pointer-events: stroke;">
+        Categorias
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+      <button type="button" class="botaoBusca btn">
+        <span class="material-symbols-outlined d-flex align-items-center justify-content-center">
+          search
+        </span>
+      </button>
+    </div>
+    <div class="dropdownCategoria btn-group">
+      <div>
+        <button class="btn btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: flex;">
+          <div>
+            <span class="material-symbols-outlined">sort</span>
+          </div>
+          <span style="padding: 0px 5px 0px 5px;">Categoria</span>
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: flex;">
+          <div>
+            <span class="material-symbols-outlined">shopping_cart</span>
+          </div>
+          <span style="padding: 0px 5px 0px 5px;">Categoria</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="containerUsuario">
+    <div>
+      <button class="btn btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: flex;">
+        <div>
+          <span class="material-symbols-outlined">person</span>
+        </div>
+        <span style="padding: 0px 5px 0px 5px;">Login/Registrar</span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="corpoSite">
+  <div class="carrossel" style="width: 100%;">
+    <app-carrossel></app-carrossel>
+  </div>
+  <div class="carrosselProdutos" style="padding: 50px;">
+    <h2>Produtos Populares</h2>
+  </div>
+</div>
+<div>
+  <footer class="footerDefault">
+    <p></p>
+  </footer>
+</div>
+<router-outlet />
