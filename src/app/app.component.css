@@ -1,5 +1,5 @@
 .headerDefault {
-    background-color: #E77C40;
+    background-color: #f39b68;
     display: flex;
     justify-content: space-between;
     align-items: center; /* Adicionando alinhamento vertical */
@@ -51,11 +51,10 @@
 }
 
 .footerDefault {
-    background-color: #E77C40;
+    background-color: #f39b68;
     color: white;
     text-align: center;
-    padding: 10px 0; /* Espaçamento interno para o conteúdo */
-    position: fixed;
+    padding: 10px 0; /* Espaçamento interno para o conteúdo */    
     bottom: 0; /* Posiciona o rodapé na parte inferior da tela */
     width: 100%; /* Faz o rodapé ocupar toda a largura da tela */
-  }
+}

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CarrosselComponent } from './util/carrossel/carrossel.component';
+import { CarrosselComponent } from './util/carrosseis/carrossel-imagens/carrossel.component';
 import { NgbCarouselConfig,NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarrosselProdutosComponent } from './util/carrossel-produtos/carrossel-produtos.component';
-
+import { CarrosselProdutosComponent } from './util/carrosseis/carrossel-produtos/carrossel-produtos.component';
+import { CarrosselMercadosComponent } from './util/carrosseis/carrossel-mercados/carrossel-mercados.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ import { CarrosselProdutosComponent } from './util/carrossel-produtos/carrossel-
     CarrosselComponent,
     NgbCarouselModule,
     CarrosselProdutosComponent,
+    CarrosselMercadosComponent
   ],
   providers: [
     NgbCarouselConfig

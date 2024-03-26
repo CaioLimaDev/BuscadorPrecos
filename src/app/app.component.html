@@ -64,14 +64,20 @@
   <div class="carrossel" style="width: 100%;">
     <app-carrossel></app-carrossel>
   </div>
-  <div class="carrosselProdutos" style="padding: 50px;">
-    <h2>Produtos Populares</h2>
-    <app-carrossel-produtos></app-carrossel-produtos>
+  <div class="carrosselContainer" style="padding: 50px;">
+    <div class="carrosselMercados" style="padding: 50px;">
+      <h2>Mercados Populares</h2>
+      <app-carrossel-mercados></app-carrossel-mercados>
+    </div>
+    <div class="carrosselProdutos" style="padding: 50px;">
+      <h2 style="margin-bottom: 20px;">Produtos Populares</h2>
+      <app-carrossel-produtos></app-carrossel-produtos>
+    </div>
   </div>
 </div>
-<div>
-  <footer class="footerDefault">
-    <p></p>
-  </footer>
-</div>
+<nav>
+  <div class="footerDefault">
+    <p>asd</p>
+  </div>
+</nav>
 <router-outlet />
