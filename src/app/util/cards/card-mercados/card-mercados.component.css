@@ -10,4 +10,5 @@
 
 .card{
     background-color: #f39b68;
+    width: fit-content;
 }
