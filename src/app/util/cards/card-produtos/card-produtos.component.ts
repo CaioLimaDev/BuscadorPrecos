@@ -11,7 +11,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './card-produtos.component.css'
 })
 export class CardProdutosComponent {
-  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/1366/480`);
+  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/1366/720`);
 
   @Input() card: any;
 }

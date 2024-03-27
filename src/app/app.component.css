@@ -5,6 +5,7 @@
     align-items: center; /* Adicionando alinhamento vertical */
     width: 100%;
     padding: 15px;
+    
   }
 .containerBusca {
     display: flex;
@@ -54,7 +55,7 @@
     background-color: #f39b68;
     color: white;
     text-align: center;
-    padding: 10px 0; /* Espaçamento interno para o conteúdo */    
-    bottom: 0; /* Posiciona o rodapé na parte inferior da tela */
-    width: 100%; /* Faz o rodapé ocupar toda a largura da tela */
+    padding: 10px 0;
+    bottom: 0; 
+    width: 100%; 
 }
