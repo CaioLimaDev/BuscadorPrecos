@@ -1,1 +1,27 @@
-<p>page-mercados works!</p>
+<div class="page-mercados-container">
+    <div class="cardContainer">
+        <div class="card mb-3 rounded border shadow-sm" style="max-width: 450px;">
+            <div class="row g-0">
+                <div class="imageContainer col-md-3">
+                    <img [src]="images[0]" class="imgCard img-fluid border-2" alt="logoMercado">
+                </div>
+                <div class="col-md-7 d-flex align-items-center">
+                    <div class="card-body">
+                        <h2 class="card-title">Pão de Açucar</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ofertas">
+        <h2>Melhores Ofertas</h2>
+        <app-carrossel-produtos></app-carrossel-produtos>
+    </div>
+    <div class="ofertas-categorias" *ngFor="let categoria of categorias">
+        <h2>Ofertas em {{categoria.categoriaDescricao}}</h2>
+        <app-carrossel-produtos></app-carrossel-produtos>
+    </div>
+    <div>
+        <h2>Ver Mais...</h2>
+    </div>
+</div>

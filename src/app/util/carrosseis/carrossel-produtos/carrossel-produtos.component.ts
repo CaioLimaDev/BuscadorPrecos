@@ -29,5 +29,8 @@ export class CarrosselProdutosComponent {
       { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 }
     ]
 
-  slideConfig = {"slidesToShow": 4, "slidesToScroll": 2};
+  slideConfig = {
+    "slidesToShow": 4,
+    "slidesToScroll": 2,
+  };
 }

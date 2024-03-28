@@ -1,0 +1,20 @@
+.page-mercados-container{
+    padding: 5rem;
+}
+
+.card{    
+    text-align: left;
+}
+
+.imgCard {
+    border-radius: 50%;    
+    border: solid;
+}
+
+.imageContainer{
+    padding: 1rem;
+}
+
+.cardContainer{
+    padding: 2rem;
+}

@@ -1,16 +1,21 @@
-.imgCard {
-    border-radius: 50%;    
-    padding: 2rem;
-}
-.card-body{    
-    margin-bottom: 10px;
-    height: max-content;
-    text-align: center;
+.imageContainer {
+  padding: 2rem;
 }
 
-.card{    
-    background-color: #f39b68;
-    width: 100%;
+.imgCard {
+  border-radius: 50%;
+  border: solid rgb(209, 209, 209);
+}
+
+.card-body {
+  margin-bottom: 10px;
+  height: max-content;
+  text-align: center;
+}
+
+.card {  
+  width: 100%;
+  margin-bottom: 1px;
 }
 
 
@@ -19,4 +24,3 @@
     width: 12rem;
   }
 }
-
