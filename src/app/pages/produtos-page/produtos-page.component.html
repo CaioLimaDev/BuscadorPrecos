@@ -1,0 +1,9 @@
+<div class="produtos-grid-container">
+    <div class="container text-center">
+        <div class="row row-cols-4" *ngFor="let card of cards">
+            <div class="col">
+                <app-card-produtos [card]="card"></app-card-produtos>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CardMercadosComponent } from '../../cards/card-mercados/card-mercados.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { NgIf,NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
+import { MercadosService } from '../../../services/mercados/mercados.service';
 
 @Component({
   selector: 'app-carrossel-mercados',
@@ -15,17 +16,11 @@ import { NgIf,NgFor } from '@angular/common';
   styleUrl: './carrossel-mercados.component.css'
 })
 export class CarrosselMercadosComponent {
-  
-  cards = [
-    {nomeItem: 'bla', nomeMercado: 'Atacadão', precoItem: 20 },
-    { nomeItem: 'bla bla', nomeMercado: 'Pão de Açucar', precoItem: 30 },
-    { nomeItem: 'bla bla bla', nomeMercado: 'Hiper Moreira', precoItem: 10 },
-    { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 },
-    { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 },
-    { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 },
-    { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 },
-    { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 }
-  ]
+  mercados = [{ nomeMercados: String }]
 
-slideConfig = {"slidesToShow": 4, "slidesToScroll": 2};
+  constructor(private mercadoService: MercadosService){
+    this.mercados = this.mercadoService.getMercados
+  }
+
+  slideConfig = { "slidesToShow": 4, "slidesToScroll": 2 };
 }

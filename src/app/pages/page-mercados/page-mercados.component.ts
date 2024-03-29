@@ -2,13 +2,16 @@ import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CarrosselProdutosComponent } from '../../util/carrosseis/carrossel-produtos/carrossel-produtos.component';
 import { CategoriasService } from '../../services/categorias/categorias.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-page-mercados',
   standalone: true,
   imports: [
     CarrosselProdutosComponent,
-    NgFor
+    NgFor,
+    RouterLink,
+    RouterOutlet
   ],
   templateUrl: './page-mercados.component.html',
   styleUrl: './page-mercados.component.css'
@@ -19,8 +22,6 @@ export class PageMercadosComponent {
 
   constructor(private categoriasService: CategoriasService) { 
     this.categorias = this.categoriasService.getCategorias;
-  }
-  
-   
+  }   
 
 }

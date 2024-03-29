@@ -1,7 +1,7 @@
 <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-    @for (card of cards; track card.nomeItem) {
-    <div ngxSlickItem class="slide">
-      <app-card-mercados [card]="cards"></app-card-mercados>
-    </div>
-    }
+  @for (mercado of mercados; track mercado) {
+  <div ngxSlickItem class="slide">
+    <app-card-mercados [card]="mercado"></app-card-mercados>
+  </div>
+  }
 </ngx-slick-carousel>

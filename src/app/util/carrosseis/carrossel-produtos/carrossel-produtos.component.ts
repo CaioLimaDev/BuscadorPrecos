@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CardProdutosComponent } from '../../cards/card-produtos/card-produtos.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgIf,NgFor } from '@angular/common';
-
+import { ProdutosService } from '../../../services/produtos/produtos.service';
 
 @Component({
   selector: 'app-carrossel-produtos',
@@ -18,17 +18,11 @@ import { NgIf,NgFor } from '@angular/common';
 })
 export class CarrosselProdutosComponent {
   
-  cards = [
-      { nomeItem: 'TremBao', nomeMercado: 'Atacadão', precoItem: 20 },
-      { nomeItem: 'Trem melhor ainda', nomeMercado: 'Pão de Açucar', precoItem: 30 },
-      { nomeItem: 'bla bla bla', nomeMercado: 'Hiper Moreira', precoItem: 10 },
-      { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 },
-      { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 },
-      { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 },
-      { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 },
-      { nomeItem: 'bla bla bla bla', nomeMercado: 'Bretas', precoItem: 20 }
-    ]
+  cards = [{nomeItem: String, nomeMercado: String, precoItem: Number}]
 
+  constructor(private produtosService: ProdutosService){
+    this.cards = this.produtosService.getProdutos
+  }
   slideConfig = {
     "slidesToShow": 4,
     "slidesToScroll": 2,
