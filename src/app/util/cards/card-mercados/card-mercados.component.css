@@ -9,8 +9,9 @@
 
 .card-body {
   margin-bottom: 10px;
-  height: max-content;
-  text-align: center;
+  height: 8rem;
+  text-align: center;  
+  align-content: center;
 }
 
 .card {  

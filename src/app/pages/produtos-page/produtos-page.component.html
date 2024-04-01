@@ -1,9 +1,15 @@
-<div class="produtos-grid-container">
+<app-sidebar></app-sidebar>
+<div class="produtosContainer produtos-grid-container">
     <div class="container text-center">
-        <div class="row row-cols-4" *ngFor="let card of cards">
-            <div class="col">
-                <app-card-produtos [card]="card"></app-card-produtos>
+        <div class="grid">
+            <div class="linhasProdutos row row-cols-4">
+                <div class="colunasProdutos g-col-6" *ngFor="let card of cards">
+                    <app-card-produtos [card]="card"></app-card-produtos>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="paginationComponent">
+        <app-pagination></app-pagination>
     </div>
 </div>

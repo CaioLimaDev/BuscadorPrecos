@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CarrosselProdutosComponent } from '../../util/carrosseis/carrossel-produtos/carrossel-produtos.component';
 import { CategoriasService } from '../../services/categorias/categorias.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-page-mercados',
@@ -11,6 +11,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     CarrosselProdutosComponent,
     NgFor,
     RouterLink,
+    RouterLinkActive,
     RouterOutlet
   ],
   templateUrl: './page-mercados.component.html',

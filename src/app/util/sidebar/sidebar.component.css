@@ -1,0 +1,29 @@
+.filtrosContainer{
+    padding: 2rem;
+    float: left;
+    margin-right: 5rem;
+    width: 15%;
+}
+.mercadosFiltroContainer{
+    border-bottom: 1px solid gray;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    justify-content: center;
+}
+.categoriasFiltroContainer{
+    border-bottom: 1px solid gray;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    justify-content: center;
+}
+.precosFiltroContainer{
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.mercadosFiltro{
+    margin-bottom: 10px;
+}
+.categoriasFiltro{
+    margin-bottom: 10px;
+}
