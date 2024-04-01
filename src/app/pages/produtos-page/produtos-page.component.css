@@ -1,0 +1,10 @@
+.paginationComponent{    
+    display: flex;
+    justify-content: flex-end;
+}
+.produtosContainer{
+    padding: 5rem;    
+}
+.colunasProdutos{
+    margin-bottom: 4rem;
+}

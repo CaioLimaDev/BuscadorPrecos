@@ -1,0 +1,27 @@
+.imageContainer {
+  padding: 2rem;
+}
+
+.imgCard {
+  border-radius: 50%;
+  border: solid rgb(209, 209, 209);
+}
+
+.card-body {
+  margin-bottom: 10px;
+  height: 8rem;
+  text-align: center;  
+  align-content: center;
+}
+
+.card {  
+  width: 100%;
+  margin-bottom: 1px;
+}
+
+
+@media (min-width: 600px) {
+  .card {
+    width: 12rem;
+  }
+}

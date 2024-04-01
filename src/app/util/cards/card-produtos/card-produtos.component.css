@@ -1,0 +1,15 @@
+.card-body{    
+    margin-bottom: 20px;
+    height: 10rem;
+}
+
+.card{
+    width: 100%;
+}
+
+
+@media (min-width: 600px) {
+  .card {
+    width: 12rem;
+  }
+}

@@ -1,10 +1,18 @@
 .headerDefault {
+<<<<<<< HEAD
     background-color: #E77C40;
+=======
+    background-color: #f39b68;
+>>>>>>> 7b8861dddb473a04b9ec41452cac483d4de312b8
     display: flex;
     justify-content: space-between;
     align-items: center; /* Adicionando alinhamento vertical */
     width: 100%;
     padding: 15px;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 7b8861dddb473a04b9ec41452cac483d4de312b8
   }
 .containerBusca {
     display: flex;
@@ -51,6 +59,7 @@
 }
 
 .footerDefault {
+<<<<<<< HEAD
     background-color: #E77C40;
     color: white;
     text-align: center;
@@ -59,3 +68,12 @@
     bottom: 0; /* Posiciona o rodapé na parte inferior da tela */
     width: 100%; /* Faz o rodapé ocupar toda a largura da tela */
   }
+=======
+    background-color: #f39b68;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0; 
+    width: 100%; 
+}
+>>>>>>> 7b8861dddb473a04b9ec41452cac483d4de312b8
