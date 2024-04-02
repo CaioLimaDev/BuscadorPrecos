@@ -1,0 +1,5 @@
+<div class="containerProdutos container">
+    <div class="cardProdutosContainer" *ngFor="let produto of produtos.slice(0,3)">
+        <app-card-produtos-horizontal [card]="produto"></app-card-produtos-horizontal>
+    </div>
+</div>
