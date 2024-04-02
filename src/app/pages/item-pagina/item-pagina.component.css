@@ -1,0 +1,32 @@
+.apresentacaoProdutoContainer{
+    padding: 5rem;
+}
+.corpoContainer{
+    justify-content: center;
+    padding: 0px 10rem;
+}
+.navegacaoConteudoContainer{
+    padding-bottom: 5rem;
+}
+.produtosRelacionadosContainer{
+    padding-bottom: 5rem;
+    
+}
+.infoProdutoContainer{
+    border: 1px solid gray;
+    border-radius: 40px;
+    margin-bottom: 5rem;
+}
+.informacoesGerais{    
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: 5rem;
+}
+.textoContainer{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    
+}
+.col{
+    align-content: center;
+}
