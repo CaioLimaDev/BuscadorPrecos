@@ -49,6 +49,7 @@
 
 .containerUsuario{
     margin-left: auto;
+    display: flex;
 }
 
 .footerDefault {

@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    font-family: Montserrat,sans-serif;
+}
+.material-symbols-outlined{
+    display: inline-block;   
+}
 .slick-prev:before, .slick-next:before{
     color: black !important;
 }

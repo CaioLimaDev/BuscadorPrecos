@@ -1,12 +1,9 @@
 .containerProdutos{
-    border: 1px solid;
     border-radius: 40px;
     padding: 20px;
-    width: 70%;
 }
 .cardProdutosContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }

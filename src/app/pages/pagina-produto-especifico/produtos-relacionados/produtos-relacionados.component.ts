@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CardProdutosHorizontalComponent } from '../cards/card-produtos-horizontal/card-produtos-horizontal.component';
-import { ProdutosService } from '../../services/produtos/produtos.service';
+import { CardProdutosHorizontalComponent } from '../../../util/cards/card-produtos-horizontal/card-produtos-horizontal.component';
+import { ProdutosService } from '../../../services/produtos/produtos.service';
 import { NgFor } from '@angular/common';
 
 @Component({
