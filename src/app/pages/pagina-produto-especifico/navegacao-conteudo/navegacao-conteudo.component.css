@@ -1,0 +1,10 @@
+.navegacaoContainer{
+    border-bottom: 1px solid gray;
+}
+.botoesContainer,
+.botoesContainer button{
+    justify-content: center;
+    margin-right: 5rem;
+    display: flex;
+    padding: 0;    
+}

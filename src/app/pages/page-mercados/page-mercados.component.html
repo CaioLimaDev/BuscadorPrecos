@@ -20,11 +20,9 @@
     <div class="ofertas-categorias" *ngFor="let categoria of categorias">
         <h2>Ofertas em {{categoria.categoriaDescricao}}</h2>
         <app-carrossel-produtos></app-carrossel-produtos>
-    </div>
-    <div>
-        <a routerLink="produtos-page" routerLinkActive="active">
-            <h2>Ver Mais...</h2>
-        </a>
+        <div style="margin-bottom: 20px;">
+                <a routerLink="../produtos-page" routerLinkActive="active">Ver Mais...</a>
+        </div>
     </div>
 </div>
 <router-outlet></router-outlet>

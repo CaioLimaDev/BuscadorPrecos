@@ -1,0 +1,9 @@
+.containerProdutos{
+    border-radius: 40px;
+    padding: 20px;
+}
+.cardProdutosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
