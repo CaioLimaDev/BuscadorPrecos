@@ -1,0 +1,13 @@
+<div *ngFor="let item of card" class="card" style="width: 18rem;">
+    <img [src]="images[1]" class="card-img-top" alt="imgBala">
+    <div class="card-body">
+        <h5 class="card-title">{{item.nomeItem}}</h5>
+        <p class="card-text">
+            Aproveite Agora!! <br>
+            {{item.nomeItem}} <br>
+            <i><s>R${{item.precoItem}} Por</s></i><b> $9,99</b> <br>
+            Só no mercado: {{item.nomeMercado}}
+        </p>
+        <a href="#" class="btn btn-primary">Ver Mais</a>
+    </div>
+</div>
