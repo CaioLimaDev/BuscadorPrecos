@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 
+export interface Mercados{
+  nomeMercado: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class MercadosService {
-  private mercados = [
+
+  private mercados: Mercados[] = [
     { nomeMercado: 'Bretas' },
     { nomeMercado: 'Carrefour' },
     { nomeMercado: 'Pão de Açúcar' },
@@ -15,7 +20,7 @@ export class MercadosService {
   constructor() { }
 
 
-  public get getMercados(): any {
+  public get getMercados(): Mercados[] {
     return this.mercados
   }
 

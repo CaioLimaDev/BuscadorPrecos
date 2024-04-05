@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CardMercadosComponent } from '../../cards/card-mercados/card-mercados.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgFor } from '@angular/common';
-import { MercadosService } from '../../../services/mercados/mercados.service';
+import { MercadosService, Mercados } from '../../../services/mercados/mercados.service';
 
 @Component({
   selector: 'app-carrossel-mercados',
@@ -16,7 +16,7 @@ import { MercadosService } from '../../../services/mercados/mercados.service';
   styleUrl: './carrossel-mercados.component.css'
 })
 export class CarrosselMercadosComponent {
-  mercados = [{ nomeMercados: String }]
+  mercados: Mercados[]
 
   constructor(private mercadoService: MercadosService){
     this.mercados = this.mercadoService.getMercados
