@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 
+export interface Produtos{
+  nomeItem: String,
+  nomeMercado: String,
+  precoItem: Number
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosService {
 
-  private produtos = [
+  private produtos: Produtos[] = [
     { nomeItem: 'TremBao', nomeMercado: 'Atacadão', precoItem: 20 },
     { nomeItem: 'Trem melhor ainda', nomeMercado: 'Pão de Açucar', precoItem: 30 },
     { nomeItem: 'bla bla bla', nomeMercado: 'Hiper Moreira', precoItem: 10 },
@@ -18,7 +24,7 @@ export class ProdutosService {
 
   constructor() { }
     
-  public get getProdutos() : any {
+  public get getProdutos() : any[] {
     return this.produtos;
   }
   
