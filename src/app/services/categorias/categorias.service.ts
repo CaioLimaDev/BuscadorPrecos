@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
 
-export interface Categorias{
-  categoriaDescricao: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })

@@ -1,1 +1,7 @@
-
+/* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
+=======
+.slick-prev:before, .slick-next:before{
+    color: black !important;
+}
+>>>>>>> 7b8861dddb473a04b9ec41452cac483d4de312b8

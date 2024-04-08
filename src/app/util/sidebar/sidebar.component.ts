@@ -1,40 +1,24 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { MercadosService, Mercados } from '../../services/mercados/mercados.service';
-import { CategoriasService, Categorias } from '../../services/categorias/categorias.service';
+import { Component } from '@angular/core';
+import { MercadosService } from '../../services/mercados/mercados.service';
+import { CategoriasService } from '../../services/categorias/categorias.service';
 import { NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ProdutosService, Produtos } from '../../services/produtos/produtos.service';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
   imports: [
-    NgFor,
-    FormsModule
+    NgFor
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  categorias: Categorias[];
-  mercados: Mercados[];
-  produtos: Produtos[];
-  
-  inputNomeProduto: string = ''
-  @Output() newFiltroAlterado = new EventEmitter<string>();
+  categorias = [{categoriaDescricao: String}];
+  mercados = [{nomeMercado: String}];
 
-  constructor(
-    private mercadosService: MercadosService,
-    private categoriasService: CategoriasService,
-    private produtosService: ProdutosService
-  ) {
+  constructor(private mercadosService: MercadosService, private categoriasService: CategoriasService){
     this.categorias = this.categoriasService.getCategorias;
     this.mercados = this.mercadosService.getMercados;
-    this.produtos = this.produtosService.getProdutos;
-  }
-
-  enviarFiltroProdutos(filtroProdutos: string) {
-    this.newFiltroAlterado.emit(filtroProdutos);
   }
 
 }

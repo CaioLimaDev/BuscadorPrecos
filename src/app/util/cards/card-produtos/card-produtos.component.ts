@@ -1,15 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { RouterLink,RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-card-produtos',
   standalone: true,
   imports: [
-    NgFor,
-    RouterLink,
-    RouterOutlet,
-    RouterLinkActive
+    NgFor
   ],
   templateUrl: './card-produtos.component.html',
   styleUrl: './card-produtos.component.css'
