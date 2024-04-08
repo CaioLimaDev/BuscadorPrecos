@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CardProdutosComponent } from '../../util/cards/card-produtos/card-produtos.component';
-import { ProdutosService, Produtos } from '../../services/produtos/produtos.service';
+import { Produtos, ProdutosService, ProdutosFiltroDTO } from '../../services/produtos/produtos.service';
 import { SidebarComponent } from '../../util/sidebar/sidebar.component';
 import { PaginationComponent } from '../../util/pagination/pagination/pagination.component';
 import { CommonModule } from '@angular/common';
+
 
 
 @Component({
@@ -21,16 +22,22 @@ import { CommonModule } from '@angular/common';
   templateUrl: './produtos-page.component.html',
   styleUrl: './produtos-page.component.css'
 })
-export class ProdutosPageComponent {
-  cards: Produtos[];
-  filtroProdutos: string = '';
+export class ProdutosPageComponent implements OnInit {
+  cards: Produtos[] = [];  
 
-  constructor(private produtosService: ProdutosService){
-    this.cards = this.produtosService.getProdutos
+  constructor(private produtosService: ProdutosService){}
+
+  ngOnInit() {
+    let produtosFiltroDTO: ProdutosFiltroDTO = {
+      nomeItem: '',
+      nomeMercado: [],
+      catetegoriaItem: [],
+    };
+  
+    this.aplicarFiltroProdutos(this.produtosService.getProdutosFiltrosDTO(produtosFiltroDTO));
   }
 
-  aplicarFiltroProdutos(filtro: string){
-    this.filtroProdutos = filtro;
-    console.log(this.filtroProdutos)
+  aplicarFiltroProdutos(produtosFiltrados: Produtos[]){
+    this.cards = produtosFiltrados;
   }
 }

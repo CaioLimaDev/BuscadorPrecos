@@ -1,12 +1,14 @@
 <div class="filtrosContainer">
     <div class="cabecalhoFiltros">
-        <h6><b>Filtros: </b></h6>        
-        <input class="form-control" type="text" placeholder="Buscar" aria-label="Pesquisar" [(ngModel)]="inputNomeProduto" (input)="enviarFiltroProdutos(inputNomeProduto)">
+        <h6><b>Filtros: </b></h6>
+        <input class="form-control" type="text" placeholder="Buscar" aria-label="Pesquisar"
+            [(ngModel)]="inputNomeProduto" (ngModelChange)="enviarFiltroProdutos()">
     </div>
     <div class="mercadosFiltroContainer">
         <p><b>Mercados: </b></p>
-        <div class="mercadosFiltro form-check" *ngFor="let mercado of mercados ">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <div class="mercadosFiltro form-check" *ngFor="let mercado of mercados; let i = index">
+            <input class="form-check-input" type="checkbox" value="{{mercado.nomeMercado}}" id="flexCheckDefault"
+                [(ngModel)]="inputMercados[i]" (ngModelChange)="enviarFiltroProdutos()">
             <label class="form-check-label" for="flexCheckDefault">
                 {{mercado.nomeMercado}}
             </label>
@@ -14,8 +16,9 @@
     </div>
     <div class="categoriasFiltroContainer">
         <p><b>Categorias: </b></p>
-        <div class="categoriasFiltro form-check" *ngFor="let categoria of categorias">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <div class="categoriasFiltro form-check" *ngFor="let categoria of categorias; let i = index">
+            <input class="form-check-input" type="checkbox" value="{{categoria.categoriaDescricao}}"
+                id="flexCheckDefault" [(ngModel)]="inputCategorias[i]" (ngModelChange)="enviarFiltroProdutos()">
             <label class="form-check-label" for="flexCheckDefault">
                 {{categoria.categoriaDescricao}}
             </label>
@@ -23,9 +26,7 @@
     </div>
     <div class="precoFiltroContainer">
         <label for="customRange2" class="form-label"><b>Filtrar por Preço:</b> </label>
-        <input type="range" class="form-range-primary" min="0" max="1000" id="customRange2">
-        <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button">Filtrar</button>
-        </div>
+        <input type="range" class="form-range-primary" min="0" max="1000" id="customRange2"
+            (change)="enviarFiltroProdutos()">
     </div>
 </div>

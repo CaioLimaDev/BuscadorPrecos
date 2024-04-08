@@ -11,9 +11,8 @@ export interface Produtos {
 
 export interface ProdutosFiltroDTO {
   nomeItem: string,
-  nomeMercado: Mercados,
-  precoItem: string
-  catetegoriaItem: Categorias
+  nomeMercado: Mercados[],
+  catetegoriaItem: Categorias[]
 }
 
 @Injectable({
@@ -24,12 +23,12 @@ export class ProdutosService {
   private produtos: Produtos[] = [
     { nomeItem: 'TremBao', nomeMercado: { nomeMercado: 'Atacadão' }, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
     { nomeItem: 'Trem melhor ainda', nomeMercado: { nomeMercado: 'Pão de Açucar' }, precoItem: 30, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
-    { nomeItem: 'bla bla bla', nomeMercado: {nomeMercado: 'Hiper Moreira'}, precoItem: 10, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
-    { nomeItem: 'bla bla bla bla', nomeMercado: {nomeMercado: 'Bretas'}, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
-    { nomeItem: 'bla bla bla bla', nomeMercado: {nomeMercado: 'Bretas'}, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
-    { nomeItem: 'bla bla bla bla', nomeMercado: {nomeMercado: 'Bretas'}, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
-    { nomeItem: 'bla bla bla bla', nomeMercado: {nomeMercado: 'Bretas'}, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
-    { nomeItem: 'bla bla bla bla', nomeMercado: {nomeMercado: 'Bretas'}, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } }
+    { nomeItem: 'bla bla bla', nomeMercado: { nomeMercado: 'Hiper Moreira' }, precoItem: 10, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
+    { nomeItem: 'bla bla bla bla', nomeMercado: { nomeMercado: 'Bretas' }, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
+    { nomeItem: 'bla bla bla bla', nomeMercado: { nomeMercado: 'Bretas' }, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
+    { nomeItem: 'bla bla bla bla', nomeMercado: { nomeMercado: 'Bretas' }, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
+    { nomeItem: 'bla bla bla bla', nomeMercado: { nomeMercado: 'Bretas' }, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } },
+    { nomeItem: 'bla bla bla bla', nomeMercado: { nomeMercado: 'Bretas' }, precoItem: 20, categoriaItem: { categoriaDescricao: 'Ortifruti' } }
   ]
 
   constructor() { }
@@ -42,27 +41,37 @@ export class ProdutosService {
     if (!produtosFiltroDTO) {
       return this.produtos;
     }
-
+  
     let produtosFiltrados: Produtos[] = this.produtos;
-
+  
     if (produtosFiltroDTO.nomeItem) {
       produtosFiltrados = produtosFiltrados.filter(produto =>
         produto.nomeItem.toLowerCase().includes(produtosFiltroDTO.nomeItem.toLowerCase())
       );
     }
-
-    if (produtosFiltroDTO.nomeMercado) {
+  
+    if (produtosFiltroDTO.nomeMercado && produtosFiltroDTO.nomeMercado.length > 0) {
       produtosFiltrados = produtosFiltrados.filter(produto =>
-        produto.nomeMercado.nomeMercado.toLowerCase().includes(produtosFiltroDTO.nomeMercado.nomeMercado.toLowerCase())
+        produtosFiltroDTO.nomeMercado.some(mercado => 
+          produto.nomeMercado.nomeMercado.toLowerCase().includes(mercado.nomeMercado.toLowerCase())
+        )
       );
     }
-
-    if (produtosFiltroDTO.precoItem) {
+    
+    if (produtosFiltroDTO.catetegoriaItem && produtosFiltroDTO.catetegoriaItem.length > 0) {
       produtosFiltrados = produtosFiltrados.filter(produto =>
-        produto.precoItem === parseFloat(produtosFiltroDTO.precoItem)
+        produtosFiltroDTO.catetegoriaItem.some(categoria => 
+          produto.categoriaItem.categoriaDescricao.toLowerCase().includes(categoria.categoriaDescricao.toLowerCase())
+        )
       );
     }
+    
 
+  
+    if (!produtosFiltroDTO.nomeItem && !produtosFiltroDTO.nomeMercado) {
+      return this.produtos;
+    }
     return produtosFiltrados;
   }
+  
 }

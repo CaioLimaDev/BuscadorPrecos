@@ -3,7 +3,7 @@ import { MercadosService, Mercados } from '../../services/mercados/mercados.serv
 import { CategoriasService, Categorias } from '../../services/categorias/categorias.service';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ProdutosService, Produtos } from '../../services/produtos/produtos.service';
+import { ProdutosService, Produtos, ProdutosFiltroDTO } from '../../services/produtos/produtos.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,9 +19,12 @@ export class SidebarComponent {
   categorias: Categorias[];
   mercados: Mercados[];
   produtos: Produtos[];
+
+  inputNomeProduto = '';
+  inputMercados = '';
+  inputCategorias = '';
   
-  inputNomeProduto: string = ''
-  @Output() newFiltroAlterado = new EventEmitter<string>();
+  @Output() newFiltroAlterado = new EventEmitter<any>();
 
   constructor(
     private mercadosService: MercadosService,
@@ -33,8 +36,18 @@ export class SidebarComponent {
     this.produtos = this.produtosService.getProdutos;
   }
 
-  enviarFiltroProdutos(filtroProdutos: string) {
-    this.newFiltroAlterado.emit(filtroProdutos);
+  getCardsFiltrados(produtosFiltroDTO: ProdutosFiltroDTO) {
+    return this.categoriasService.getCategorias(produtosFiltroDTO)
   }
+  enviarFiltroProdutos() {
+    let produtosFiltroDTO: ProdutosFiltroDTO = {
+      nomeItem: this.inputNomeProduto,
+      nomeMercado: this.inputMercados,
+      catetegoriaItem: this.inputCategorias
+    };
+
+    this.newFiltroAlterado.emit(this.getCardsFiltrados(produtosFiltroDTO));
+  }
+
 
 }
