@@ -26,11 +26,6 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-<<<<<<< HEAD
-              "src/styles.css"              
-            ],
-            "scripts": [],
-=======
               "src/styles.css",
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss"
@@ -39,7 +34,6 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/slick-carousel/slick/slick.min.js"
             ],
->>>>>>> 7b8861dddb473a04b9ec41452cac483d4de312b8
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -110,12 +104,6 @@
     }
   },
   "cli": {
-<<<<<<< HEAD
-    "analytics": "87932515-2b99-44ae-9ad5-3f0c7d5d87b3"
-  }
-}
-=======
     "analytics": false
   }
 }
->>>>>>> 7b8861dddb473a04b9ec41452cac483d4de312b8
