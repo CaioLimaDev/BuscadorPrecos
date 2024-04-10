@@ -15,5 +15,5 @@ import { RouterLink,RouterLinkActive, RouterOutlet } from '@angular/router';
 export class CardMercadosComponent {
   images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/200/200`);
   
-  @Input() card: any;
+  @Input() cards: any;
 }

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CardProdutosComponent } from '../../cards/card-produtos/card-produtos.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgIf,NgFor } from '@angular/common';
-import { ProdutosService } from '../../../services/produtos/produtos.service';
+import { Produtos, ProdutosService } from '../../../services/produtos/produtos.service';
 
 @Component({
   selector: 'app-carrossel-produtos',
@@ -16,12 +16,16 @@ import { ProdutosService } from '../../../services/produtos/produtos.service';
   templateUrl: './carrossel-produtos.component.html',
   styleUrl: './carrossel-produtos.component.css'
 })
-export class CarrosselProdutosComponent {
+export class CarrosselProdutosComponent implements OnInit{
   
-  cards = [{nomeItem: String, nomeMercado: String, precoItem: Number}]
+  @Input() produtos: Produtos[] = [] 
 
-  constructor(private produtosService: ProdutosService){
-    this.cards = this.produtosService.getProdutos
+  constructor(private produtosService: ProdutosService){}
+
+  ngOnInit(): void {
+    if(this.produtos.length === 0){
+      this.produtos = this.produtosService.getProdutos
+    }
   }
   slideConfig = {
     "slidesToShow": 4,

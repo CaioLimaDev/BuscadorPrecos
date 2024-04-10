@@ -17,12 +17,12 @@
         <h2>Melhores Ofertas</h2>
         <app-carrossel-produtos></app-carrossel-produtos>
     </div>
-    <div class="ofertas-categorias" *ngFor="let categoria of categorias">
+    <div class="ofertas-categorias" *ngFor="let categoria of categorias; let i = index">
         <h2>Ofertas em {{categoria.categoriaDescricao}}</h2>
-        <app-carrossel-produtos></app-carrossel-produtos>
+        <app-carrossel-produtos [produtos]="produtosPorCategoria[categoria.categoriaDescricao]"></app-carrossel-produtos>
         <div style="margin-bottom: 20px;">
-                <a routerLink="../produtos-page" routerLinkActive="active">Ver Mais...</a>
+            <a routerLink="../produtos-page" routerLinkActive="active">Ver Mais...</a>
         </div>
-    </div>
+    </div>    
 </div>
 <router-outlet></router-outlet>

@@ -7,7 +7,7 @@
     <div class="mercadosFiltroContainer">
         <p><b>Mercados: </b></p>
         <div class="mercadosFiltro form-check" *ngFor="let mercado of mercados; let i = index">
-            <input class="form-check-input" type="checkbox" value="{{mercado.nomeMercado}}" id="flexCheckDefault"
+            <input class="form-check-input" type="checkbox" [value]="mercado.nomeMercado" id="flexCheckDefault"
                 [(ngModel)]="inputMercados[i]" (ngModelChange)="enviarFiltroProdutos()">
             <label class="form-check-label" for="flexCheckDefault">
                 {{mercado.nomeMercado}}
@@ -17,8 +17,8 @@
     <div class="categoriasFiltroContainer">
         <p><b>Categorias: </b></p>
         <div class="categoriasFiltro form-check" *ngFor="let categoria of categorias; let i = index">
-            <input class="form-check-input" type="checkbox" value="{{categoria.categoriaDescricao}}"
-                id="flexCheckDefault" [(ngModel)]="inputCategorias[i]" (ngModelChange)="enviarFiltroProdutos()">
+            <input class="form-check-input" type="checkbox" [value]="categoria.categoriaDescricao" id="flexCheckDefault"
+                [(ngModel)]="inputCategorias[i]" (ngModelChange)="enviarFiltroProdutos()">
             <label class="form-check-label" for="flexCheckDefault">
                 {{categoria.categoriaDescricao}}
             </label>
@@ -26,7 +26,9 @@
     </div>
     <div class="precoFiltroContainer">
         <label for="customRange2" class="form-label"><b>Filtrar por Preço:</b> </label>
-        <input type="range" class="form-range-primary" min="0" max="1000" id="customRange2"
-            (change)="enviarFiltroProdutos()">
+        <input type="range" class="form-range-primary" min="0" [max]="getMaiorPrecoPossivel()" id="customRange2" [(ngModel)]="inputPrecoFiltro"
+            (change)="enviarFiltroProdutos()" style="width: 100%;">
+        <input type="number" class="form-control" min="0" [max]="getMaiorPrecoPossivel()" [(ngModel)]="inputPrecoFiltro"
+            (change)="enviarFiltroProdutos()" style="width: 100%;">
     </div>
 </div>

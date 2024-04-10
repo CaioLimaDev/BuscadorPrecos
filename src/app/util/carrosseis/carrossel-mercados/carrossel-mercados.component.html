@@ -1,7 +1,7 @@
 <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
   @for (mercado of mercados; track mercado) {
   <div ngxSlickItem class="slide">
-    <app-card-mercados [card]="mercado"></app-card-mercados>
+    <app-card-mercados [cards]="mercado"></app-card-mercados>
   </div>
   }
 </ngx-slick-carousel>
