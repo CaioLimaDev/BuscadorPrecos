@@ -12,8 +12,6 @@ import { RouterLink,RouterLinkActive, RouterOutlet } from '@angular/router';
   templateUrl: './card-mercados.component.html',
   styleUrl: './card-mercados.component.css'
 })
-export class CardMercadosComponent {
-  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/200/200`);
-  
+export class CardMercadosComponent { 
   @Input() cards: any;
 }

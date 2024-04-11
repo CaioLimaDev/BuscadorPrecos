@@ -3,20 +3,23 @@
 }
 
 .imgCard {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   border: solid rgb(209, 209, 209);
 }
 
 .card-body {
   margin-bottom: 10px;
-  height: 8rem;
   text-align: center;  
   align-content: center;
 }
 
 .card {  
+  height: 20rem;
   width: 100%;
   margin-bottom: 1px;
+  cursor: pointer;
 }
 
 
