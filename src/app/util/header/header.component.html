@@ -2,7 +2,7 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <nav class="headerDefault navbar navbar-expand-lg ">
   <div class="logoItem">
-    <h2 class="navbar-brand" routerLink=""><b>Buscador de <br>Preços</b></h2>
+    <button class="btn" routerLink=""><h2 class="navbar-brand"><b>Buscador de <br>Preços</b></h2></button>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
       </div>
       <div class="dropdown" (mouseenter)="openDropdown(2)" (mouseleave)="closeDropdown(2)">
         <button class="btn btn-sm dropdown-toggle custom-dropdown-toggle" type="button" id="dropdownMenuButton2"
-          aria-haspopup="true" aria-expanded="false" >
+          aria-haspopup="true" aria-expanded="false">
           <div class="d-flex align-items-center">
             <div>
               <span class="material-symbols-outlined">shopping_cart</span>
@@ -51,7 +51,7 @@
         <div class="dropdownMercados dropdown-menu" aria-labelledby="dropdownMenuButton2"
           [ngClass]="{ 'show': isDropdownOpen === 2 }">
           <ul *ngFor="let mercado of mercados" style="list-style: none;">
-            <li class="itensDropdownMercados"><a>{{mercado.nomeMercado}}</a></li>
+            <li class="itensDropdownMercados" (click)="irParaMercado()"><a>{{mercado.nomeMercado}}</a></li>
           </ul>
         </div>
       </div>

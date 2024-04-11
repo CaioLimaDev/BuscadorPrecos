@@ -1,9 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Mercados, MercadosService } from '../../services/mercados/mercados.service';
 import { Categorias, CategoriasService } from '../../services/categorias/categorias.service';
-import { ProdutosFiltroDTO } from '../../services/produtos/produtos.service';
 import { FormsModule } from '@angular/forms';
 import { FiltrosService } from '../../services/filtros/filtros.service';
 @Component({
@@ -11,7 +10,8 @@ import { FiltrosService } from '../../services/filtros/filtros.service';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterLink
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -32,8 +32,7 @@ export class HeaderComponent {
   }
 
   alterarFiltro(filtro: Categorias[]){
-    this.filtroService.atualizarFiltroCategoria(filtro)
-    console.log(filtro)
+    this.filtroService.atualizarFiltroCategoria(filtro)    
     this.router.navigate(['/produtos-page'])  
   }
 

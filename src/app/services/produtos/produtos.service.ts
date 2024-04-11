@@ -62,8 +62,7 @@ export class ProdutosService {
     return maxPreco
   }
 
-  getProdutosFiltrosDTO(produtosFiltroDTO: ProdutosFiltroDTO): Produtos[] {
-    console.log(produtosFiltroDTO)
+  getProdutosFiltrosDTO(produtosFiltroDTO: ProdutosFiltroDTO): Produtos[] {    
     if (!produtosFiltroDTO) {
       return this.produtos;
     }
