@@ -5,7 +5,7 @@ import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProdutosService, Produtos, ProdutosFiltroDTO } from '../../services/produtos/produtos.service';
 import { HeaderComponent } from '../header/header.component';
-import { FiltrosService } from '../../services/filtros/filtros.service';
+import { PropsService } from '../../services/props/props.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -34,9 +34,9 @@ export class SidebarComponent {
     private mercadosService: MercadosService,
     private categoriasService: CategoriasService,
     private produtosService: ProdutosService,
-    private filtroService: FiltrosService
+    private filtroService: PropsService
   ) {
-    this.filtroService.filtroAtual$.subscribe(filtro =>{
+    this.filtroService.propProdutoBuscado$.subscribe(filtro =>{
       if (filtro){      
         this.newFiltroAlterado.emit(this.produtosService.getProdutosFiltrosDTO(filtro))
       }

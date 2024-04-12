@@ -1,0 +1,18 @@
+.barraBusca {
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 0;
+    border: 1px solid #3C403D;
+    padding-bottom: 10px;
+}
+
+.botaoBusca {
+    background-color: #3C403D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 0;
+    border: 1px solid #3C403D;
+}

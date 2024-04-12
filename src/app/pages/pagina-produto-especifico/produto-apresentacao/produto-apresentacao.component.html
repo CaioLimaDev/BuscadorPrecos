@@ -1,35 +1,35 @@
 <div class="apresentacaoContainer container">
     <div class="titulo">
-        <h4>Manteiga com Sal AVIAÇÃO Tablete 200g</h4>
+        <h4>{{produto[0].nomeItem}}</h4>
     </div>
     <div class="conteudoContainer">
         <div class="row">
             <div class="tumbnaisContainer col-sm-1">
                 <div class="imagens row">
-                    <img [src]="images[1]" class="rounded img-fluid">
+                    <img src="{{produto[0].imagemItem}}" class="rounded img-fluid">
                 </div>
                 <div class="imagens row">
-                    <img [src]="images[1]" class="rounded img-fluid">
+                    <img src="{{produto[0].imagemItem}}" class="rounded img-fluid">
                 </div>
                 <div class="imagens row">
-                    <img [src]="images[1]" class="rounded img-fluid">
+                    <img src="{{produto[0].imagemItem}}" class="rounded img-fluid">
                 </div>
                 <div class="imagens row">
-                    <img [src]="images[1]" class="rounded img-fluid">
+                    <img src="{{produto[0].imagemItem}}" class="rounded img-fluid">
                 </div>
             </div>
             <div class="imagemMaior col">
                 <div class="row">
                     <div class="col">
-                        <img [src]="images[2]" class="img-thumbnail img-fluid">
+                        <img src="{{produto[0].imagemItem}}" class="img-thumbnail img-fluid">
                     </div>
                 </div>
             </div>
             <div class="resumoLateral col">
                 <div class="row">
                     <b>
-                        <p>menor preço via Mercado</p>
-                        <p>R$25,00</p>
+                        <p>menor preço via {{produto[0].nomeMercado.nomeMercado}}</p>
+                        <p>R${{produto[0].precoItem}}</p>
                     </b>
                     <button type="button" class="botaoComparar btn btn-dark">Comparar Preços</button>
                     <button type="button" class="botaoFavoritos btn">

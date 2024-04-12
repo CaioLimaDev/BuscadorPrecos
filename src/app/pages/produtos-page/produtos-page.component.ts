@@ -5,7 +5,7 @@ import { Produtos, ProdutosService, ProdutosFiltroDTO } from '../../services/pro
 import { SidebarComponent } from '../../util/sidebar/sidebar.component';
 import { PaginationComponent } from '../../util/pagination/pagination/pagination.component';
 import { CommonModule } from '@angular/common';
-import { FiltrosService } from '../../services/filtros/filtros.service';
+import { PropsService } from '../../services/props/props.service';
 
 @Component({
   selector: 'app-produtos-page',
@@ -24,10 +24,10 @@ import { FiltrosService } from '../../services/filtros/filtros.service';
 export class ProdutosPageComponent implements OnInit {
   cards: Produtos[] = [];  
 
-  constructor(private produtosService: ProdutosService, private filtroService: FiltrosService){}
+  constructor(private produtosService: ProdutosService, private filtroService: PropsService){}
 
   ngOnInit() {
-    this.filtroService.filtroAtual$.subscribe(filtro => {
+    this.filtroService.propProdutoBuscado$.subscribe(filtro => {
       if (filtro) {        
         this.aplicarFiltroProdutos(this.produtosService.getProdutosFiltrosDTO(filtro));
       } else {        

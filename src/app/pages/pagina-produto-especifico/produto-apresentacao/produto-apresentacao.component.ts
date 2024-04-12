@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-produto-apresentacao',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './produto-apresentacao.component.html',
   styleUrl: './produto-apresentacao.component.css'
 })
-export class ProdutoApresentacaoComponent {
-  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/1366/720`);
+export class ProdutoApresentacaoComponent {  
+  @Input() produto: any;
   
 }

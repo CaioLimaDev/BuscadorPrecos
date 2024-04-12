@@ -1,4 +1,4 @@
-<div class="card" (click)="irParaItemPage()">
+<div class="card" (click)="irParaItemPage(card)">
     <img src="{{card.imagemItem}}" class="cardImg card-img-top" alt="imgBala">
     <div class="card-body">
         <h5 class="card-title">{{(card.nomeItem.length > 25) ? (card.nomeItem | slice:0:25)+'...' : card.nomeItem}}</h5>
