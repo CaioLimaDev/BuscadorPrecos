@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { CarrosselProdutosComponent } from '../../util/carrosseis/carrossel-produtos/carrossel-produtos.component';
 import { Categorias, CategoriasService } from '../../services/categorias/categorias.service';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
@@ -15,7 +15,8 @@ import { PropsService } from '../../services/props/props.service';
     NgFor,
     RouterLink,
     RouterLinkActive,
-    RouterOutlet
+    RouterOutlet,
+    NgIf
   ],
   templateUrl: './page-mercados.component.html',
   styleUrl: './page-mercados.component.css'
@@ -51,8 +52,7 @@ export class PageMercadosComponent implements OnInit {
             precoItem: 0,
             nomeMercado: [filtro],
             catetegoriaItem: [categoria]
-          };
-          console.log(this.produtosPorCategoria[categoria.categoriaDescricao] = this.produtosService.getProdutosFiltrosDTO(filtroCategoria))
+          };          
           this.produtosPorCategoria[categoria.categoriaDescricao] = this.produtosService.getProdutosFiltrosDTO(filtroCategoria);
         }
       } else {
