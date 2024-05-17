@@ -16,10 +16,10 @@ import { Router } from '@angular/router';
 export class BarraBuscaComponent {
 
   produtosFiltroDTO: ProdutosFiltroDTO = {
-    catetegoriaItem: [],
-    nomeItem: '',
-    nomeMercado: [],
-    precoItem: 0
+    categoria: [],
+    nomeProduto: '',
+    mercado: [],
+    precoProduto: 0
   }
 
   constructor(
@@ -28,7 +28,6 @@ export class BarraBuscaComponent {
   ){}
 
   buscarProduto(filtro: ProdutosFiltroDTO){
-    console.log(filtro)
     this.propsService.atualizarProdutoBuscado(filtro)
     this.router.navigate(['/produtos-page'])
   }

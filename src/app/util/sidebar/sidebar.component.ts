@@ -19,9 +19,9 @@ import { PropsService } from '../../services/props/props.service';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  categorias: Categorias[];
-  mercados: Mercados[];
-  produtos: Produtos[];  
+  mercados: Mercados[] = [];
+  produtos: Produtos[] = [];
+  categorias: String[] = []
 
   inputNomeProduto = '';
   inputPrecoFiltro = 0;
@@ -29,23 +29,23 @@ export class SidebarComponent {
   inputCategorias: Categorias[] = []
 
   @Output() newFiltroAlterado = new EventEmitter<any>();
-  
+
   constructor(
     private mercadosService: MercadosService,
-    private categoriasService: CategoriasService,
     private produtosService: ProdutosService,
     private filtroService: PropsService
   ) {
     this.filtroService.propProdutoBuscado$.subscribe(filtro =>{
-      if (filtro){      
-        this.newFiltroAlterado.emit(this.produtosService.getProdutosFiltrosDTO(filtro))
+      if (filtro){
+        this.newFiltroAlterado.emit(this.produtosService.getProdutos(filtro).subscribe(
+          produtos => this.produtos = produtos.result,
+        ))
       }
     })
-    this.categorias = this.categoriasService.getCategorias;
-    this.mercados = this.mercadosService.getMercados;
-    this.produtos = this.produtosService.getProdutos;
+    this.produtosService.getCategoriasProdutos().subscribe(categorias => this.categorias = categorias);
+    this.mercadosService.getMercados().subscribe( mercados  => this.mercados = mercados.result );
   }
-  
+
   getValoresCheckboxSelecionadosMercados(): any[]{
     return this.mercados.filter((e,i) => this.inputMercados[i])
   }
@@ -54,23 +54,21 @@ export class SidebarComponent {
     return this.categorias.filter((e,i) => this.inputCategorias[i]);
   }
 
-  getCheckboxValue(){
-    
-  }
   getMaiorPrecoPossivel(): number{
-    return this.produtosService.valorMaximoProdutos
+    return this.produtosService.valorMaximoProdutos()
   }
 
   getCardsFiltrados(produtosFiltroDTO: ProdutosFiltroDTO) {
-    return this.produtosService.getProdutosFiltrosDTO(produtosFiltroDTO)
+    console.log(produtosFiltroDTO)
+    return this.produtosService.getProdutos(produtosFiltroDTO)
   }
 
   enviarFiltroProdutos() {
     let produtosFiltroDTO: ProdutosFiltroDTO = {
-      nomeItem: this.inputNomeProduto,
-      precoItem: this.inputPrecoFiltro,
-      nomeMercado: this.getValoresCheckboxSelecionadosMercados(),
-      catetegoriaItem: this.getValoresCheckboxSelecionadosCategorias()
+      nomeProduto: this.inputNomeProduto,
+      precoProduto: this.inputPrecoFiltro,
+      mercado: this.getValoresCheckboxSelecionadosMercados(),
+      categoria: this.getValoresCheckboxSelecionadosCategorias()
     };
 
     this.newFiltroAlterado.emit(this.getCardsFiltrados(produtosFiltroDTO));

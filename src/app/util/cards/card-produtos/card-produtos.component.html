@@ -1,11 +1,11 @@
-<div class="card" (click)="irParaItemPage(card)">
-    <img src="{{card.imagemItem}}" class="cardImg card-img-top" alt="imgBala">
+<div class="card" (click)="irParaItemPage(card.id)">
+    <img src="{{card.imagem}}" class="cardImg card-img-top" alt="imgBala">
     <div class="card-body">
-        <h5 class="card-title">{{(card.nomeItem.length > 25) ? (card.nomeItem | slice:0:25)+'...' : card.nomeItem}}</h5>
+        <h5 class="card-title">{{(card.nomeProduto.length > 25) ? (card.nomeProduto | slice:0:25)+'...' : card.nomeProduto}}</h5>
         <p class="card-text">
-            Aproveite Agora!! <br>            
-            <i>De <s>$9,99 </s></i><b></b>Por R${{card.precoItem}}<br>
-            Só no {{card.nomeMercado.nomeMercado}}
+            Aproveite Agora!! <br>
+            <i>De <s>$9,99 </s></i><b></b>Por R${{card.precoProduto}}<br>
+            Só no {{card.mercado.nome}}
         </p>
     </div>
 </div>

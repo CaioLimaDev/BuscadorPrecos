@@ -21,7 +21,19 @@ import { Produtos } from '../../../services/produtos/produtos.service';
 })
 export class ItemPaginaComponent implements OnInit{
 
-  produto: Produtos[] = []
+  produto: Produtos = {
+    id: 0,
+    categoria: "",
+    imagem: "",
+    mercado: {
+      id: 0,
+      nome: '',
+      logo: '',
+    },
+    nomeProduto: "",
+    precoProduto: 0,
+    unidadeMedida: ""
+  }
 
   constructor(
     private propsService: PropsService
@@ -30,13 +42,12 @@ export class ItemPaginaComponent implements OnInit{
   ngOnInit(): void {
     this.propsService.propAtualProduto$.subscribe(produto => {
       if(produto){
-        console.log([produto])
-        this.aplicarProdutoSelecionado([produto])
+        this.aplicarProdutoSelecionado(produto)
       }
     })
   }
 
-  aplicarProdutoSelecionado(produto: Produtos[]){
+  aplicarProdutoSelecionado(produto: Produtos){
     this.produto = produto;
   }
 }

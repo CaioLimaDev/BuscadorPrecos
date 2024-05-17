@@ -18,19 +18,20 @@ import { Produtos, ProdutosService } from '../../../services/produtos/produtos.s
 })
 export class CarrosselProdutosComponent implements OnInit {
 
-  @Input() produtos: Produtos[] = []
+  @Input() produtos: Produtos[] = [];
 
   constructor(private produtosService: ProdutosService) { }
 
   ngOnInit(): void {
-    if (this.produtos === undefined) {
-      this.produtos
-    } else if (this.produtos.length === 0) {
-      this.produtos = this.produtosService.getProdutos
+    if (!this.produtos || this.produtos.length === 0) {
+      this.produtosService.getProdutos().subscribe(data => {
+        this.produtos = data.result;
+      });
     }
   }
+
   slideConfig = {
-    "slidesToShow": 4,
-    "slidesToScroll": 2,
+    slidesToShow: 4,
+    slidesToScroll: 2
   };
 }

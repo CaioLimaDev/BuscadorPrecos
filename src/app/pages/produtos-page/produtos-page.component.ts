@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
 import { CardProdutosComponent } from '../../util/cards/card-produtos/card-produtos.component';
 import { Produtos, ProdutosService, ProdutosFiltroDTO } from '../../services/produtos/produtos.service';
 import { SidebarComponent } from '../../util/sidebar/sidebar.component';
@@ -11,38 +10,43 @@ import { PropsService } from '../../services/props/props.service';
   selector: 'app-produtos-page',
   standalone: true,
   imports: [
-    NgFor,
     CardProdutosComponent,
     SidebarComponent,
     PaginationComponent,
     CommonModule,
-    
   ],
   templateUrl: './produtos-page.component.html',
-  styleUrl: './produtos-page.component.css'
+  styleUrls: ['./produtos-page.component.css']
 })
 export class ProdutosPageComponent implements OnInit {
-  cards: Produtos[] = [];  
+  cards: Produtos[] = [];
+  filtroPadrao: ProdutosFiltroDTO = {
+    nomeProduto: '',
+    precoProduto: 0,
+    mercado: [],
+    categoria: [],
+  };
 
-  constructor(private produtosService: ProdutosService, private filtroService: PropsService){}
+  constructor(
+    private produtosService: ProdutosService,
+    private filtroService: PropsService
+  ) {}
 
   ngOnInit() {
     this.filtroService.propProdutoBuscado$.subscribe(filtro => {
-      if (filtro) {        
-        this.aplicarFiltroProdutos(this.produtosService.getProdutosFiltrosDTO(filtro));
-      } else {        
-        let produtosFiltroDTO: ProdutosFiltroDTO = {
-          nomeItem: '',
-          nomeMercado: [],
-          precoItem: 0,
-          catetegoriaItem: [],
-        };
-        this.aplicarFiltroProdutos(this.produtosService.getProdutosFiltrosDTO(produtosFiltroDTO));
-      }
+      this.atualizarProdutos(filtro);
     });
   }
 
-  aplicarFiltroProdutos(produtosFiltrados: Produtos[]){
-    this.cards = produtosFiltrados;
+  atualizarProdutos(filtro: ProdutosFiltroDTO | null) {
+    const filtroAtual: ProdutosFiltroDTO = filtro || this.filtroPadrao;
+    this.produtosService.getProdutos(filtroAtual).subscribe(
+      produtos => {
+        this.cards = produtos.result;
+      },
+      error => {
+        console.log('Ocorreu um erro ao buscar os produtos:', error);
+      }
+    );
   }
 }

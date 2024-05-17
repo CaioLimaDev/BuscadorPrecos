@@ -16,10 +16,12 @@ import { MercadosService, Mercados } from '../../../services/mercados/mercados.s
   styleUrl: './carrossel-mercados.component.css'
 })
 export class CarrosselMercadosComponent {
-  mercados: Mercados[]
+  mercados: Mercados[] = []
 
   constructor(private mercadoService: MercadosService){
-    this.mercados = this.mercadoService.getMercados
+    this.mercadoService.getMercados().subscribe(
+      mercados => this.mercados = mercados.result,
+    )
   }
 
   slideConfig = { "slidesToShow": 4, "slidesToScroll": 2 };

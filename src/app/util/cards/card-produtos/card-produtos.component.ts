@@ -23,19 +23,31 @@ import { Produtos } from '../../../services/produtos/produtos.service';
 export class CardProdutosComponent implements OnInit {
   images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/1366/720`);
 
-  @Input() card: any;
+  @Input() card: Produtos = {
+    id: 0,
+    categoria: "",
+    imagem: "",
+    mercado: {
+      id: 0,
+      nome: '',
+      logo: '',
+    },
+    nomeProduto: "",
+    precoProduto: 0,
+    unidadeMedida: ""
+  };
 
   constructor(
     private router: Router,
-    private propsService: PropsService
+    private propsService: PropsService,
   ) {}
 
   ngOnInit(): void {
   }
 
-  irParaItemPage(filtro: Produtos) {
-    this.propsService.atualizarProdutoDesejado(filtro)
-    console.log(filtro)
+  irParaItemPage(id: number) {
+    this.propsService.atualizarProdutoDesejado(id)
+    console.log()
     this.router.navigate(['/item-pagina']);
   }
 }

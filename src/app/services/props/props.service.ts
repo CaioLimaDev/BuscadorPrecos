@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Produtos, ProdutosFiltroDTO } from '../produtos/produtos.service';
+import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../produtos/produtos.service';
 import { Categorias } from '../categorias/categorias.service';
 import { Mercados } from '../mercados/mercados.service';
 
@@ -13,24 +13,26 @@ export class PropsService {
 
   atualizarMercadoDesejado(mercado: Mercados){
     let mercadoOutput: Mercados = {
-      nomeMercado: mercado.nomeMercado,
-      logoMercado: mercado.logoMercado      
+      id: mercado.id,
+      nome: mercado.nome,
+      logo: mercado.logo
     }
     this.filtroMercado.next(mercadoOutput)
   }
-  
+
   private produtoProps = new BehaviorSubject<Produtos | null>(null);
   propAtualProduto$ = this.produtoProps.asObservable();
 
-  atualizarProdutoDesejado(produto: Produtos){
-    let produtoOutput: Produtos = {
-      categoriaItem: produto.categoriaItem,
-      imagemItem: produto.imagemItem,
-      nomeItem: produto.nomeItem,
-      nomeMercado: produto.nomeMercado,
-      precoItem: produto.precoItem
-    }
-    this.produtoProps.next(produtoOutput)
+  atualizarProdutoDesejado(id: number){
+    let produtoOutput: Produtos;
+
+    this.produtoService.getProdutosPorId(id).subscribe(
+      produto => {
+        produtoOutput = produto;
+        console.log(produtoOutput);
+        this.produtoProps.next(produtoOutput)
+      }
+    )
   }
 
   private buscarProdutosProps = new BehaviorSubject<ProdutosFiltroDTO | null> (null);
@@ -38,14 +40,13 @@ export class PropsService {
 
   atualizarProdutoBuscado(produtosFiltroDTO: ProdutosFiltroDTO ){
     let produtosFiltroOutput: ProdutosFiltroDTO = {
-      catetegoriaItem: produtosFiltroDTO.catetegoriaItem,
-      nomeItem: produtosFiltroDTO.nomeItem,
-      nomeMercado: produtosFiltroDTO.nomeMercado,
-      precoItem: produtosFiltroDTO.precoItem
+      categoria: produtosFiltroDTO.categoria,
+      nomeProduto: produtosFiltroDTO.nomeProduto,
+      mercado: produtosFiltroDTO.mercado,
+      precoProduto: produtosFiltroDTO.precoProduto
     }
-    console.log(produtosFiltroOutput)
     this.buscarProdutosProps.next(produtosFiltroOutput);
   }
 
-  constructor() { }
+  constructor(private produtoService: ProdutosService) { }
 }

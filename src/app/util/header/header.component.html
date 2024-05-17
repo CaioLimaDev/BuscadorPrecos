@@ -44,7 +44,7 @@
         <div class="dropdownMercados dropdown-menu" aria-labelledby="dropdownMenuButton2"
           [ngClass]="{ 'show': isDropdownOpen === 2 }">
           <ul *ngFor="let mercado of mercados" style="list-style: none;">
-            <li class="itensDropdownMercados" (click)="irParaMercado(mercado)"><a>{{mercado.nomeMercado}}</a></li>
+            <li class="itensDropdownMercados" (click)="irParaMercado(mercado)"><a>{{mercado.nome}}</a></li>
           </ul>
         </div>
       </div>

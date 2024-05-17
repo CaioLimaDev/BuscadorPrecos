@@ -1,9 +1,9 @@
-<app-sidebar (newFiltroAlterado)="aplicarFiltroProdutos($event)"></app-sidebar>
+<app-sidebar (newFiltroAlterado)="atualizarProdutos($event)"></app-sidebar>
 <div class="produtosContainer produtos-grid-container">
     <div class="container text-center">
         <div class="grid">
             <div class="linhasProdutos row row-cols-4">
-                <div class="colunasProdutos g-col-6" *ngFor="let card of cards">                    
+                <div class="colunasProdutos g-col-6" *ngFor="let card of cards">
                     <app-card-produtos [card]="card"></app-card-produtos>
                 </div>
             </div>

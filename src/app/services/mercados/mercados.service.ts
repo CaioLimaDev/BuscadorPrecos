@@ -1,28 +1,31 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 export interface Mercados{
-  nomeMercado: string;
-  logoMercado: string
+  id: number;
+  nome: string;
+  logo: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class MercadosService {
+  urlBase = 'http://localhost:8080/api/mercados';
+  private mercados: Mercados[] = []
 
-  private mercados: Mercados[] = [
-    { nomeMercado: 'Bretas', logoMercado: 'assets/logos/Logotipo_do_Supermercado_Bretas.svg.png' },
-    { nomeMercado: 'Carrefour', logoMercado: 'assets/logos/carrefour.svg' },
-    { nomeMercado: 'Pão de Açúcar', logoMercado: 'assets/logos/Logomarca_do_Pão_de_Açúcar_(supermercado).png' },
-    { nomeMercado: 'Hiper Moreira', logoMercado: 'assets/logos/hiper_moreira.png' },
-    { nomeMercado: 'Atacadão', logoMercado: 'assets/logos/atacadao.png' }
-  ]
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-
-  public get getMercados(): Mercados[] {
-    return this.mercados
+  getMercados(): Observable<any> {
+    return this.http.get<any>(
+      this.urlBase, {
+        headers: {
+          Accept: 'application/json'
+        }
+      }
+    )
   }
+
 
 }

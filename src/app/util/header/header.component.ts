@@ -22,14 +22,14 @@ import { ProdutosFiltroDTO } from '../../services/produtos/produtos.service';
 })
 export class HeaderComponent {
 
-  mercados: Mercados[];
+  mercados: Mercados[] = [];
   categorias: Categorias[];
-  
+
   produtosFiltrosDTO: ProdutosFiltroDTO = {
-    catetegoriaItem: [],
-    nomeItem: '',
-    nomeMercado: [],
-    precoItem: 0
+    categoria: [],
+    nomeProduto: '',
+    mercado: [],
+    precoProduto: 0
   }
 
   constructor(
@@ -38,18 +38,19 @@ export class HeaderComponent {
     private router: Router,
     private filtroService: PropsService
   ) {
-    this.mercados = this.mercadosService.getMercados;
+    this.mercadosService.getMercados().subscribe(
+      mercados => this.mercados = mercados.result
+    );
     this.categorias = this.categoriasService.getCategorias;
   }
 
   inserirCategoria(categoria: Categorias[]){
     let produtosFiltroDTO: ProdutosFiltroDTO = {
-      catetegoriaItem: categoria,
-      nomeItem: '',
-      nomeMercado: [],
-      precoItem: 0
+      categoria: [],
+      nomeProduto: '',
+      mercado: [],
+      precoProduto: 0
     }
-    console.log(produtosFiltroDTO)
     this.alterarFiltro(produtosFiltroDTO);
   }
 
@@ -74,6 +75,6 @@ export class HeaderComponent {
   }
 
   irParaProdutos(){
-    this.router.navigate(['/produtos-page'])  
+    this.router.navigate(['/produtos-page'])
   }
 }

@@ -28,8 +28,9 @@ export class PageMercadosComponent implements OnInit {
   produtosPorCategoria: { [key: string]: Produtos[] } = {}
 
   mercado: Mercados = {
-    nomeMercado: '',
-    logoMercado: ''
+    id: 0,
+    nome: '',
+    logo: ''
   };
 
   constructor(
@@ -48,17 +49,20 @@ export class PageMercadosComponent implements OnInit {
         this.aplicarMercadoSelecionado(filtro);
         for (let categoria of this.categorias) {
           let filtroCategoria: ProdutosFiltroDTO = {
-            nomeItem: '',
-            precoItem: 0,
-            nomeMercado: [filtro],
-            catetegoriaItem: [categoria]
-          };          
-          this.produtosPorCategoria[categoria.categoriaDescricao] = this.produtosService.getProdutosFiltrosDTO(filtroCategoria);
+            nomeProduto: '',
+            precoProduto: 0,
+            mercado: [filtro],
+            categoria: []
+          };
+          this.produtosService.getProdutos(filtroCategoria).subscribe(
+            produtos => this.produtosPorCategoria = produtos.result
+          );
         }
       } else {
         let mercados: Mercados = {
-          nomeMercado: '',
-          logoMercado: ''
+          id: 0,
+          nome: '',
+          logo: ''
         };
         this.aplicarMercadoSelecionado(mercados);
       }
@@ -67,9 +71,5 @@ export class PageMercadosComponent implements OnInit {
 
   aplicarMercadoSelecionado(mercado: Mercados) {
     this.mercado = mercado;
-  };
-
-  getCardsFiltrados(protutosFiltradosDTO: ProdutosFiltroDTO) {
-    return this.produtosService.getProdutosFiltrosDTO(protutosFiltradosDTO);
   };
 }

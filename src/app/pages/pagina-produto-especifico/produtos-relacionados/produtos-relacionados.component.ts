@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardProdutosHorizontalComponent } from '../../../util/cards/card-produtos-horizontal/card-produtos-horizontal.component';
-import { ProdutosService } from '../../../services/produtos/produtos.service';
+import { ProdutosService, Produtos } from '../../../services/produtos/produtos.service';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -14,9 +14,11 @@ import { NgFor } from '@angular/common';
   styleUrl: './produtos-relacionados.component.css'
 })
 export class ProdutosRelacionadosComponent {
-  produtos = [{nomeItem: String, nomeMercado: String, precoItem: Number}]
+  produtos: Produtos[] = []
 
   constructor(private produtoService:ProdutosService){
-    this.produtos = this.produtoService.getProdutos;
+    this.produtoService.getProdutos().subscribe(
+      produto => this.produtos = produto.result
+    );
   }
 }
