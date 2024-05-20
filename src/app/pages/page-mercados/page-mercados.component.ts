@@ -51,7 +51,7 @@ export class PageMercadosComponent implements OnInit {
           let filtroCategoria: ProdutosFiltroDTO = {
             nomeProduto: '',
             precoProduto: 0,
-            mercado: [filtro],
+            mercado: [filtro.nome],
             categoria: []
           };
           this.produtosService.getProdutos(filtroCategoria).subscribe(
