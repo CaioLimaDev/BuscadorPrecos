@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { CardProdutosHorizontalComponent } from '../../../util/cards/card-produtos-horizontal/card-produtos-horizontal.component';
-import { ProdutosService, Produtos } from '../../../services/produtos/produtos.service';
-import { NgFor } from '@angular/common';
+import {Component} from '@angular/core';
+import {
+  CardProdutosHorizontalComponent
+} from '../../../util/cards/card-produtos-horizontal/card-produtos-horizontal.component';
+import {Produtos, ProdutosService} from '../../../services/produtos/produtos.service';
+import {NgFor} from '@angular/common';
 
 @Component({
   selector: 'app-produtos-relacionados',

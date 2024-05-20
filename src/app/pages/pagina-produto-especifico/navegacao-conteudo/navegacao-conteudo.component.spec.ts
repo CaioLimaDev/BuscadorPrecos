@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NavegacaoConteudoComponent } from './navegacao-conteudo.component';
+import {NavegacaoConteudoComponent} from './navegacao-conteudo.component';
 
 describe('NavegacaoConteudoComponent', () => {
   let component: NavegacaoConteudoComponent;
@@ -11,7 +11,7 @@ describe('NavegacaoConteudoComponent', () => {
       imports: [NavegacaoConteudoComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(NavegacaoConteudoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

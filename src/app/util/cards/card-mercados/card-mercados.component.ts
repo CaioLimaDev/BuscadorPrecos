@@ -1,7 +1,7 @@
-import { Component, Input, Output } from '@angular/core';
-import { RouterLink,RouterLinkActive, RouterOutlet } from '@angular/router';
-import { Mercados } from '../../../services/mercados/mercados.service';
-import { FormsModule } from '@angular/forms';
+import {Component, Input, Output} from '@angular/core';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {Mercados} from '../../../services/mercados/mercados.service';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-card-mercados',
@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './card-mercados.component.html',
   styleUrl: './card-mercados.component.css'
 })
-export class CardMercadosComponent { 
+export class CardMercadosComponent {
   @Input() cards: any;
 
   @Output() infoMercados: Mercados[] = [];

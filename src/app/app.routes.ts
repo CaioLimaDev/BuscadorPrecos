@@ -1,8 +1,8 @@
-import { Routes } from '@angular/router';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { PageMercadosComponent } from './pages/page-mercados/page-mercados.component';
-import { ProdutosPageComponent } from './pages/produtos-page/produtos-page.component';
-import { ItemPaginaComponent } from './pages/pagina-produto-especifico/item-pagina/item-pagina.component';
+import {Routes} from '@angular/router';
+import {HomePageComponent} from './pages/home-page/home-page.component';
+import {PageMercadosComponent} from './pages/page-mercados/page-mercados.component';
+import {ProdutosPageComponent} from './pages/produtos-page/produtos-page.component';
+import {ItemPaginaComponent} from './pages/pagina-produto-especifico/item-pagina/item-pagina.component';
 
 export const routes: Routes = [
     { path: '', component: HomePageComponent, title: 'Home' },

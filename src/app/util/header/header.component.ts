@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
-import { Mercados, MercadosService } from '../../services/mercados/mercados.service';
-import { Categorias, CategoriasService } from '../../services/categorias/categorias.service';
-import { FormsModule } from '@angular/forms';
-import { PropsService } from '../../services/props/props.service';
-import { BarraBuscaComponent } from './barra-busca/barra-busca.component';
-import { ProdutosFiltroDTO } from '../../services/produtos/produtos.service';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Router, RouterLink} from '@angular/router';
+import {Mercados, MercadosService} from '../../services/mercados/mercados.service';
+import {Categorias, CategoriasService} from '../../services/categorias/categorias.service';
+import {FormsModule} from '@angular/forms';
+import {PropsService} from '../../services/props/props.service';
+import {BarraBuscaComponent} from './barra-busca/barra-busca.component';
+import {ProdutosFiltroDTO} from '../../services/produtos/produtos.service';
 
 @Component({
   selector: 'app-header',

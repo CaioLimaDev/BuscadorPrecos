@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { PropsService } from '../../../services/props/props.service';
-import { Router } from '@angular/router';
-import { Produtos } from '../../../services/produtos/produtos.service';
+import {Component, Input} from '@angular/core';
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {PropsService} from '../../../services/props/props.service';
+import {Produtos} from '../../../services/produtos/produtos.service';
+
 @Component({
   selector: 'app-card-produtos-horizontal',
   standalone: true,

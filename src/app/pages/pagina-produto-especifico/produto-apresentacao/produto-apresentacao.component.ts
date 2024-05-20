@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-produto-apresentacao',
@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './produto-apresentacao.component.html',
   styleUrl: './produto-apresentacao.component.css'
 })
-export class ProdutoApresentacaoComponent {  
+export class ProdutoApresentacaoComponent {
   @Input() produto: any;
-  
+
 }

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BarraBuscaComponent } from './barra-busca.component';
+import {BarraBuscaComponent} from './barra-busca.component';
 
 describe('BarraBuscaComponent', () => {
   let component: BarraBuscaComponent;
@@ -11,7 +11,7 @@ describe('BarraBuscaComponent', () => {
       imports: [BarraBuscaComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(BarraBuscaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

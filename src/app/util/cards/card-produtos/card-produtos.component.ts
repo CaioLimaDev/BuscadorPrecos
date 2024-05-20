@@ -1,10 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { SlicePipe } from '@angular/common';
-import { Router } from '@angular/router';
-import { PropsService } from '../../../services/props/props.service';
-import { Produtos } from '../../../services/produtos/produtos.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {NgFor, SlicePipe} from '@angular/common';
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {PropsService} from '../../../services/props/props.service';
+import {Produtos} from '../../../services/produtos/produtos.service';
 
 @Component({
   selector: 'app-card-produtos',

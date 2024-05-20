@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Mercados } from '../mercados/mercados.service';
-import {HttpClient, HttpParams } from "@angular/common/http";
-import { URLSearchParams} from "node:url";
+import {Injectable} from '@angular/core';
+import {Mercados} from '../mercados/mercados.service';
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 export interface Produtos {

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { CardMercadosComponent } from '../../cards/card-mercados/card-mercados.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { NgFor } from '@angular/common';
-import { MercadosService, Mercados } from '../../../services/mercados/mercados.service';
+import {Component} from '@angular/core';
+import {CardMercadosComponent} from '../../cards/card-mercados/card-mercados.component';
+import {SlickCarouselModule} from 'ngx-slick-carousel';
+import {NgFor} from '@angular/common';
+import {Mercados, MercadosService} from '../../../services/mercados/mercados.service';
 
 @Component({
   selector: 'app-carrossel-mercados',

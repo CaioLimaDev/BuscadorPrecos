@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../produtos/produtos.service';
-import { Categorias } from '../categorias/categorias.service';
-import { Mercados } from '../mercados/mercados.service';
+import {Mercados} from '../mercados/mercados.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropsService {
-  private filtroMercado = new BehaviorSubject<Mercados | null>(null);
+  private filtroMercado = new BehaviorSubject<Mercados>({id: 0, nome: '',logo: ''});
   filtroAtualMercado$ = this.filtroMercado.asObservable();
 
   atualizarMercadoDesejado(mercado: Mercados){

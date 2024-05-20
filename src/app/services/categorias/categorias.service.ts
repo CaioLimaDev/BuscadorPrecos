@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 export interface Categorias{
   categoriaDescricao: string;
@@ -18,9 +18,9 @@ export class CategoriasService {
 
   constructor() { }
 
-  
+
   public get getCategorias() : any {
     return this.categorias
   }
-  
+
 }

@@ -4,7 +4,6 @@ import {NgFor} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';
 import {HeaderComponent} from '../header/header.component';
-import {PropsService} from '../../services/props/props.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -36,7 +35,6 @@ export class SidebarComponent implements OnInit {
   constructor(
     private mercadosService: MercadosService,
     private produtosService: ProdutosService,
-    private filtroService: PropsService
   ) {
 
     this.produtosService.getCategoriasProdutos().subscribe(categorias => {

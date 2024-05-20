@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { PropsService } from '../../../services/props/props.service';
-import { ProdutosFiltroDTO } from '../../../services/produtos/produtos.service';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {PropsService} from '../../../services/props/props.service';
+import {ProdutosFiltroDTO} from '../../../services/produtos/produtos.service';
+import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-barra-busca',

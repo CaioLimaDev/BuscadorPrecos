@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ItemPaginaComponent } from './item-pagina.component';
+import {ItemPaginaComponent} from './item-pagina.component';
 
 describe('ItemPaginaComponent', () => {
   let component: ItemPaginaComponent;
@@ -11,7 +11,7 @@ describe('ItemPaginaComponent', () => {
       imports: [ItemPaginaComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ItemPaginaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

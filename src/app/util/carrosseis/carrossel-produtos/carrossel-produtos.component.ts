@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CardProdutosComponent } from '../../cards/card-produtos/card-produtos.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { NgIf, NgFor } from '@angular/common';
-import { Produtos, ProdutosService } from '../../../services/produtos/produtos.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {CardProdutosComponent} from '../../cards/card-produtos/card-produtos.component';
+import {SlickCarouselModule} from 'ngx-slick-carousel';
+import {NgFor, NgIf} from '@angular/common';
+import {Produtos, ProdutosService} from '../../../services/produtos/produtos.service';
 
 @Component({
   selector: 'app-carrossel-produtos',

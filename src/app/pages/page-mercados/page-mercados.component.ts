@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
-import { CarrosselProdutosComponent } from '../../util/carrosseis/carrossel-produtos/carrossel-produtos.component';
-import { Categorias, CategoriasService } from '../../services/categorias/categorias.service';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { Produtos, ProdutosFiltroDTO, ProdutosService } from '../../services/produtos/produtos.service';
-import { Mercados } from '../../services/mercados/mercados.service';
-import { PropsService } from '../../services/props/props.service';
+import {Component, OnInit} from '@angular/core';
+import {NgFor, NgIf} from '@angular/common';
+import {CarrosselProdutosComponent} from '../../util/carrosseis/carrossel-produtos/carrossel-produtos.component';
+import {Categorias, CategoriasService} from '../../services/categorias/categorias.service';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';
+import {Mercados} from '../../services/mercados/mercados.service';
+import {PropsService} from '../../services/props/props.service';
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-page-mercados',
@@ -22,9 +23,7 @@ import { PropsService } from '../../services/props/props.service';
   styleUrl: './page-mercados.component.css'
 })
 export class PageMercadosComponent implements OnInit {
-  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/200/200`);
   categorias: Categorias[];
-  cards: Produtos[] = [];
   produtosPorCategoria: { [key: string]: Produtos[] } = {}
 
   mercado: Mercados = {
@@ -42,22 +41,29 @@ export class PageMercadosComponent implements OnInit {
   }
 
   ngOnInit() {
-    let filtro;
+    let filtro: Mercados;
     this.filtroService.filtroAtualMercado$.subscribe(f => {
       filtro = f;
       if (filtro) {
+        console.log(filtro);
         this.aplicarMercadoSelecionado(filtro);
-        for (let categoria of this.categorias) {
+        const requests = this.categorias.map(categoria => {
           let filtroCategoria: ProdutosFiltroDTO = {
             nomeProduto: '',
             precoProduto: 0,
             mercado: [filtro.nome],
-            categoria: []
+            categoria: [categoria.categoriaDescricao]
           };
-          this.produtosService.getProdutos(filtroCategoria).subscribe(
-            produtos => this.produtosPorCategoria = produtos.result
-          );
-        }
+          return this.produtosService.getProdutos(filtroCategoria);
+        });
+        forkJoin(requests).subscribe(
+          resultados => {
+            resultados.forEach((produtos, index) => {
+              this.produtosPorCategoria[this.categorias[index].categoriaDescricao] = produtos.result;
+            });
+            console.log(this.produtosPorCategoria);
+          }
+        );
       } else {
         let mercados: Mercados = {
           id: 0,
