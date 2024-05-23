@@ -44,8 +44,8 @@ export class PageMercadosComponent implements OnInit {
     let filtro: Mercados;
     this.filtroService.filtroAtualMercado$.subscribe(f => {
       filtro = f;
+      console.log(f)
       if (filtro) {
-        console.log(filtro);
         this.aplicarMercadoSelecionado(filtro);
         const requests = this.categorias.map(categoria => {
           let filtroCategoria: ProdutosFiltroDTO = {
@@ -61,7 +61,6 @@ export class PageMercadosComponent implements OnInit {
             resultados.forEach((produtos, index) => {
               this.produtosPorCategoria[this.categorias[index].categoriaDescricao] = produtos.result;
             });
-            console.log(this.produtosPorCategoria);
           }
         );
       } else {

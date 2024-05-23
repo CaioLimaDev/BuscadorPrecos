@@ -45,7 +45,6 @@ export class CardProdutosComponent implements OnInit {
 
   irParaItemPage(id: number) {
     this.propsService.atualizarProdutoDesejado(id)
-    console.log()
     this.router.navigate(['/item-pagina']);
   }
 }

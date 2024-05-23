@@ -1,9 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Mercados, MercadosService} from '../../services/mercados/mercados.service';
-import {NgFor} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';
-import {HeaderComponent} from '../header/header.component';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Mercados, MercadosService } from '../../services/mercados/mercados.service';
+import { NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Produtos, ProdutosFiltroDTO, ProdutosService } from '../../services/produtos/produtos.service';
+import { HeaderComponent } from '../header/header.component';
+import { PaginationService } from '../../services/pagination/pagination.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,6 +21,7 @@ export class SidebarComponent implements OnInit {
   mercados: Mercados[] = [];
   produtos: Produtos[] = [];
   categorias: string[] = [];
+  pageSize: number = 20;
 
   inputNomeProduto = '';
   inputPrecoFiltro = 0;
@@ -28,15 +30,11 @@ export class SidebarComponent implements OnInit {
 
   @Output() newFiltroAlterado = new EventEmitter<Produtos[]>();
 
-  ngOnInit() {
-    this.enviarFiltroProdutos()
-  }
-
   constructor(
     private mercadosService: MercadosService,
     private produtosService: ProdutosService,
+    private paginationService: PaginationService
   ) {
-
     this.produtosService.getCategoriasProdutos().subscribe(categorias => {
       this.categorias = categorias;
     });
@@ -44,12 +42,20 @@ export class SidebarComponent implements OnInit {
     this.mercadosService.getMercados().subscribe(mercados => {
       this.mercados = mercados.result;
     });
+
+    this.paginationService.currentPage$.subscribe(page => {
+      this.enviarFiltroProdutos(page);
+    });
+  }
+
+  ngOnInit() {
+    this.enviarFiltroProdutos();
   }
 
   getValoresCheckboxSelecionadosMercados(): any[] {
     return this.mercados.filter((e, i) => this.inputMercados[i]).map(
       mercado => mercado.nome
-    )
+    );
   }
 
   getValoresCheckboxSelecionadosCategorias(): any[] {
@@ -60,20 +66,19 @@ export class SidebarComponent implements OnInit {
     return this.produtosService.valorMaximoProdutos();
   }
 
-  enviarFiltroProdutos() {
-    console.log(this.getValoresCheckboxSelecionadosCategorias())
-    console.log(this.getValoresCheckboxSelecionadosMercados())
+  enviarFiltroProdutos(page: number = 0) {
     let produtosFiltroDTO: ProdutosFiltroDTO = {
       nomeProduto: this.inputNomeProduto,
       precoProduto: this.inputPrecoFiltro,
       mercado: this.getValoresCheckboxSelecionadosMercados(),
-      categoria: this.getValoresCheckboxSelecionadosCategorias()
+      categoria: this.getValoresCheckboxSelecionadosCategorias(),
+      page: page,
+      pageSize: this.pageSize
     };
 
-    console.log('Filtro enviado:', produtosFiltroDTO);
-    this.produtosService.getProdutos(produtosFiltroDTO).subscribe(produtos => {
-      this.produtos = produtos.result;
-      console.log('Produtos obtidos:', this.produtos);
+    this.produtosService.getProdutos(produtosFiltroDTO).subscribe(response => {
+      this.produtos = response.result;
+      this.paginationService.setTotalPages(Math.ceil(response.pageTotal / this.pageSize));
       this.newFiltroAlterado.emit(this.produtos);
     });
   }

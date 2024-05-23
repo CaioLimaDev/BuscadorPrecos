@@ -51,9 +51,10 @@ export class ProdutosService {
           params = params.append('categoria', categoria);
         });
       }
+      if (filtro.page){
+        params = params.append('page', filtro.page.toString());
+      }
     }
-
-    console.log(params.toString());
 
     return this.http.get<any>(this.urlBase,{params: params});
   }

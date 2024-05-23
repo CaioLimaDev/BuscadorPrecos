@@ -25,7 +25,7 @@ export class CarrosselProdutosComponent implements OnInit {
   ngOnInit(): void {
     if (!this.produtos || this.produtos.length === 0) {
       this.produtosService.getProdutos().subscribe(data => {
-        this.produtos = data.result;
+        this.produtos = data.result; console.log(data.url)
       });
     }
   }

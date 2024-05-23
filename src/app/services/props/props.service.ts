@@ -7,7 +7,7 @@ import {Mercados} from '../mercados/mercados.service';
   providedIn: 'root'
 })
 export class PropsService {
-  private filtroMercado = new BehaviorSubject<Mercados>({id: 0, nome: '',logo: ''});
+  private filtroMercado = new BehaviorSubject<Mercados>(<Mercados>({id: 0, nome: '',logo: ''}));
   filtroAtualMercado$ = this.filtroMercado.asObservable();
 
   atualizarMercadoDesejado(mercado: Mercados){
@@ -28,7 +28,6 @@ export class PropsService {
     this.produtoService.getProdutosPorId(id).subscribe(
       produto => {
         produtoOutput = produto;
-        console.log(produtoOutput);
         this.produtoProps.next(produtoOutput)
       }
     )
