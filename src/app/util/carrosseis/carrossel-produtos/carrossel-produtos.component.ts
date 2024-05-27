@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CardProdutosComponent} from '../../cards/card-produtos/card-produtos.component';
-import {SlickCarouselModule} from 'ngx-slick-carousel';
+import {CarouselModule} from "primeng/carousel";
 import {NgFor, NgIf} from '@angular/common';
 import {Produtos, ProdutosService} from '../../../services/produtos/produtos.service';
 
@@ -11,7 +11,7 @@ import {Produtos, ProdutosService} from '../../../services/produtos/produtos.ser
     CardProdutosComponent,
     NgIf,
     NgFor,
-    SlickCarouselModule
+    CarouselModule
   ],
   templateUrl: './carrossel-produtos.component.html',
   styleUrl: './carrossel-produtos.component.css'
@@ -19,19 +19,38 @@ import {Produtos, ProdutosService} from '../../../services/produtos/produtos.ser
 export class CarrosselProdutosComponent implements OnInit {
 
   @Input() produtos: Produtos[] = [];
+  responsiveOptions: any[] | undefined;
 
   constructor(private produtosService: ProdutosService) { }
 
   ngOnInit(): void {
     if (!this.produtos || this.produtos.length === 0) {
       this.produtosService.getProdutos().subscribe(data => {
-        this.produtos = data.result; console.log(data.url)
+        this.produtos = data.result;
       });
     }
+    this.responsiveOptions = [
+      {
+        breakpoint: '96em',
+        numVisible: 5,
+        numScroll: 2
+      },
+      {
+        breakpoint: '62em',
+        numVisible: 3,
+        numScroll: 1
+      },
+      {
+        breakpoint: '48em',
+        numVisible: 2,
+        numScroll: 1
+      },
+      {
+        breakpoint: '30em',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
   }
 
-  slideConfig = {
-    slidesToShow: 4,
-    slidesToScroll: 2
-  };
 }

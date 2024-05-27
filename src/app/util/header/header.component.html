@@ -1,70 +1,24 @@
-<link rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-<nav class="headerDefault navbar navbar-expand-lg ">
-  <div class="logoItem">
-    <button class="btn" routerLink=""><h2 class="navbar-brand"><b>Buscador de <br>Preços</b></h2></button>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-  <div class="containerBusca">
-    <app-barra-busca></app-barra-busca>
-    <div class="dropdownCategoria btn-group">
-      <div class="dropdown" (mouseenter)="openDropdown(1)" (mouseleave)="closeDropdown(1)">
-        <button class="btn btn-sm dropdown-toggle custom-dropdown-toggle" type="button" id="dropdownMenuButton"
-          aria-haspopup="true" aria-expanded="false" (click)="irParaProdutos()">
-          <div class="d-flex align-items-center">
-            <div>
-              <span class="material-symbols-outlined">sort</span>
-            </div>
-            <div class="ms-2">
-              Produtos
-            </div>
-          </div>
-        </button>
-        <div class="dropdownMenuCategorias dropdown-menu" aria-labelledby="dropdownMenuButton" [ngClass]="{ 'show': isDropdownOpen === 1 }">
-          <ul *ngFor="let categoria of categorias; let i = index" style="list-style: none;">
-            <li (click)="inserirCategoria([categoria])" class="itensDropdownCategorias"><a>{{categoria.categoriaDescricao}}</a></li>
-          </ul>
-        </div>
+<div class="card">
+  <p-megaMenu [model]="itens" [style]="{ display: 'flex', 'align-items': 'center', 'justify-content': 'center' }" styleClass="p-3 surface-0">
+    <ng-template pTemplate="item" let-item class="menusItens">
+      <a *ngIf="item.root" pRipple class="flex align-items-center cursor-pointer px-3 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+        <i [ngClass]="item.icon"></i>
+        <span class="ml-2">{{ item.label }}</span>
+      </a>
+      <a *ngIf="!item.root && !item.image" class="flex align-items-center p-3 cursor-pointer mb-2 gap-2">
+            <span class="inline-flex align-items-center justify-content-center w-3rem h-3rem">
+                <i [ngClass]="item.icon + ' text-lg'"></i>
+            </span>
+        <span class="inline-flex flex-column gap-1">
+                <span class="font-medium text-lg text-900">{{ item.label }}</span>
+                <span class="white-space-nowrap">{{ item.subtext }}</span>
+            </span>
+      </a>
+      <div *ngIf="item.image" class="flex flex-column gap-3">
+        <img [src]="item.image" alt="megamenu-demo" class="w-full" />
+        <span>{{ item.subtext }}</span>
+        <p-button [label]="item.label" [outlined]="true"></p-button>
       </div>
-      <div class="dropdown" (mouseenter)="openDropdown(2)" (mouseleave)="closeDropdown(2)">
-        <button class="btn btn-sm dropdown-toggle custom-dropdown-toggle" type="button" id="dropdownMenuButton2"
-          aria-haspopup="true" aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <div>
-              <span class="material-symbols-outlined">shopping_cart</span>
-            </div>
-            <div class="ms-2">
-              Mercados
-            </div>
-          </div>
-        </button>
-        <div class="dropdownMercados dropdown-menu" aria-labelledby="dropdownMenuButton2"
-          [ngClass]="{ 'show': isDropdownOpen === 2 }">
-          <ul *ngFor="let mercado of mercados" style="list-style: none;">
-            <li class="itensDropdownMercados" (click)="irParaMercado(mercado)"><a>{{mercado.nome}}</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="containerUsuario">
-    <div>
-      <button class="btn btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: flex;">
-        <div>
-          <span class="material-symbols-outlined">person</span>
-        </div>
-        <span style="padding: 0px 5px 0px 5px;">Login/Registrar</span>
-      </button>
-    </div>
-    <div>
-      <button type="button" class="botaoFavoritos btn">
-        <span class="material-symbols-outlined">
-          favorite
-        </span>
-      </button>
-    </div>
-  </div>
-</nav>
+    </ng-template>
+  </p-megaMenu>
+</div>

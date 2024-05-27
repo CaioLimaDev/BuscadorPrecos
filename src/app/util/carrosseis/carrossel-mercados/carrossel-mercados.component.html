@@ -1,7 +1,11 @@
-<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-  @for (mercado of mercados; track mercado) {
-  <div ngxSlickItem class="slide">
-    <app-card-mercados [cards]="mercado"></app-card-mercados>
-  </div>
-  }
-</ngx-slick-carousel>
+<div class="carousel">
+  <p-carousel
+    [value]="mercados"
+    [circular]="false"
+    [responsiveOptions]="responsiveOptions"
+    [showIndicators]="false">
+    <ng-template let-mercado pTemplate="item">
+      <app-card-mercados [cards]="mercado"></app-card-mercados>
+    </ng-template>
+  </p-carousel>
+</div>

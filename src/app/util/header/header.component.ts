@@ -1,12 +1,16 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {Mercados, MercadosService} from '../../services/mercados/mercados.service';
 import {Categorias, CategoriasService} from '../../services/categorias/categorias.service';
 import {FormsModule} from '@angular/forms';
 import {PropsService} from '../../services/props/props.service';
-import {BarraBuscaComponent} from './barra-busca/barra-busca.component';
 import {ProdutosFiltroDTO} from '../../services/produtos/produtos.service';
+import {MegaMenuItem, MenuItem} from 'primeng/api';
+import {MegaMenuModule} from 'primeng/megamenu';
+import {ButtonModule} from 'primeng/button';
+import {AvatarModule} from 'primeng/avatar';
+import {RippleModule} from "primeng/ripple";
 
 @Component({
   selector: 'app-header',
@@ -15,15 +19,20 @@ import {ProdutosFiltroDTO} from '../../services/produtos/produtos.service';
     CommonModule,
     FormsModule,
     RouterLink,
-    BarraBuscaComponent
+    MegaMenuModule,
+    ButtonModule,
+    AvatarModule,
+    RippleModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   mercados: Mercados[] = [];
+  mercadosItens: MenuItem[] = [];
   categorias: Categorias[];
+  itens: MegaMenuItem[] | undefined;
 
   produtosFiltrosDTO: ProdutosFiltroDTO = {
     categoria: [],
@@ -31,6 +40,7 @@ export class HeaderComponent {
     mercado: [],
     precoProduto: 0
   }
+  isDropdownOpen: number = 0;
 
   constructor(
     private mercadosService: MercadosService,
@@ -38,13 +48,33 @@ export class HeaderComponent {
     private router: Router,
     private filtroService: PropsService
   ) {
-    this.mercadosService.getMercados().subscribe(
-      mercados => this.mercados = mercados.result
-    );
     this.categorias = this.categoriasService.getCategorias;
   }
 
-  inserirCategoria(categoria: Categorias[]){
+  ngOnInit() {
+    this.mercadosService.getMercados().subscribe(
+      mercados => {
+        this.mercados = mercados.result;
+        console.log(mercados.nome)
+        this.mercadosItens = mercados.nome;
+      }
+    );
+    console.log(this.mercadosItens)
+    this.itens = [
+      {
+        label: 'Produto',
+        root: true,
+        icon: 'pi pi-barcode',
+      },
+      {
+        label: 'Mercados',
+        root: true,
+        icon: 'pi pi-shopping-cart',
+      }
+    ]
+  }
+
+  inserirCategoria(categoria: Categorias[]) {
     let produtosFiltroDTO: ProdutosFiltroDTO = {
       categoria: [],
       nomeProduto: '',
@@ -54,17 +84,15 @@ export class HeaderComponent {
     this.alterarFiltro(produtosFiltroDTO);
   }
 
-  alterarFiltro(filtro: ProdutosFiltroDTO){
+  alterarFiltro(filtro: ProdutosFiltroDTO) {
     this.filtroService.atualizarProdutoBuscado(filtro)
     this.router.navigate(['/produtos-page'])
   }
 
-  irParaMercado(filtro: Mercados){
+  irParaMercado(filtro: Mercados) {
     this.filtroService.atualizarMercadoDesejado(filtro)
     this.router.navigate(['/mercados-page'])
   }
-
-  isDropdownOpen: number = 0;
 
   openDropdown(index: number) {
     this.isDropdownOpen = index;
@@ -74,7 +102,7 @@ export class HeaderComponent {
     this.isDropdownOpen = 0;
   }
 
-  irParaProdutos(){
+  irParaProdutos() {
     this.router.navigate(['/produtos-page'])
   }
 }

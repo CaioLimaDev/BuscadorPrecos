@@ -1,5 +1,11 @@
-<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-  <div ngxSlickItem class="slide" *ngFor="let produto of produtos">
-    <app-card-produtos [card]="produto"></app-card-produtos>
-  </div>
-</ngx-slick-carousel>
+<div class="carousel">
+  <p-carousel
+    [value]="produtos"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+    [showIndicators]="false">
+    <ng-template let-produto pTemplate="item">
+        <app-card-produtos [card]="produto"></app-card-produtos>
+    </ng-template>
+  </p-carousel>
+</div>
