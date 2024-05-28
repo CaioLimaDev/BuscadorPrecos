@@ -1,5 +1,11 @@
 .carousel{
-    margin: 0px;
-    justify-content: center;
-    padding: 100px 100px 50px 100px;
+  border: none !important;
+}
+.nextIcone{
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.custom-prev-icon:hover, .custom-next-icon:hover {
+  color: darkblue; /* Alterar para a cor desejada ao passar o mouse */
 }

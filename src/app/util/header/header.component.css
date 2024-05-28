@@ -1,9 +1,49 @@
-.card{
-  background-color: #E77C40;
-  border: none !important;
+.headerDefault {
+  background-color: #f39b68;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: end;
-}
-.menusItens{
+  width: 100%;
+  padding: 15px 15px 5px;
 
+}
+
+.containerBusca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  width: 30%;
+}
+
+.botaoDropdown {
+  background-color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-right: 0;
+  border: 1px solid #3C403D;
+}
+
+
+.containerUsuario {
+  margin-left: auto;
+  display: flex;
+}
+
+.footerDefault {
+  background-color: #f39b68;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.custom-dropdown-toggle::after {
+  display: none !important;
+}
+
+.itensDropdownMercados:hover,
+.itensDropdownCategorias:hover{
+  cursor: pointer;
 }

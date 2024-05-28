@@ -3,6 +3,8 @@ import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/route
 import {Mercados} from '../../../services/mercados/mercados.service';
 import {FormsModule} from '@angular/forms';
 import {PropsService} from "../../../services/props/props.service";
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-card-mercados',
@@ -10,6 +12,8 @@ import {PropsService} from "../../../services/props/props.service";
   imports: [
     RouterLink,
     FormsModule,
+    CardModule,
+    ButtonModule,
     RouterLinkActive,
     RouterOutlet
   ],

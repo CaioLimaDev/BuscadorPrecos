@@ -19,7 +19,6 @@ import {Produtos} from '../../../services/produtos/produtos.service';
 })
 
 export class CardProdutosComponent implements OnInit {
-  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/1366/720`);
 
   @Input() card: Produtos = {
     id: 0,

@@ -11,17 +11,16 @@
 
 .card-body {
   margin-bottom: 10px;
-  text-align: center;  
+  text-align: center;
   align-content: center;
 }
 
-.card {  
-  height: 20rem;
+.card {
+  height: 21rem;
   width: 100%;
   margin-bottom: 1px;
   cursor: pointer;
 }
-
 
 @media (min-width: 600px) {
   .card {

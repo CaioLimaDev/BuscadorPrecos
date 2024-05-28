@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf, NgIf, CommonModule } from '@angular/common';
 import { PaginationService} from "../../../services/pagination/pagination.service";
+import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
   selector: 'app-pagination',
@@ -8,7 +9,8 @@ import { PaginationService} from "../../../services/pagination/pagination.servic
   imports: [
     NgForOf,
     NgIf,
-    CommonModule
+    CommonModule,
+    PaginatorModule
   ],
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.css']
