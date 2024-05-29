@@ -1,14 +1,13 @@
 .paginationComponent{
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 .produtosContainer{
   padding-top: 5rem;
 }
 .colunasProdutos{
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 .sidebarContainer{
   padding-right: 10rem;
 }
-

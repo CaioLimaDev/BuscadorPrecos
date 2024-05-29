@@ -3,12 +3,15 @@
     <app-sidebar (newFiltroAlterado)="atualizarProdutos($event)"></app-sidebar>
   </div>
   <div class="produtosContainer container text-center">
-    <p-dataView [value]="cards" layout="grid">
-      <ng-template pTemplate="gridItem" let-card>
-        <div class="col-12 sm:col-6 lg:col-3">
+    <div class="grid">
+      <div class="linhasProdutos row row-cols-4">
+        <div class="colunasProdutos g-col-6" *ngFor="let card of cards">
           <app-card-produtos [card]="card"></app-card-produtos>
         </div>
-      </ng-template>
-    </p-dataView>
+      </div>
+    </div>
+    <div class="paginationComponent">
+      <app-pagination></app-pagination>
+    </div>
   </div>
 </div>

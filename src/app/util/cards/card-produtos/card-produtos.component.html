@@ -4,7 +4,12 @@
         <h5 class="card-title">{{(card.nomeProduto.length > 30) ? (card.nomeProduto | slice:0:30)+'...' : card.nomeProduto}}</h5>
         <p class="card-text">
             Aproveite Agora!! <br>
-            <i>De <s>$9,99 </s></i><b></b>Por R${{card.precoProduto}}<br>
+        <span *ngIf="card.unidadeMedida === '' || null">
+          Por R${{card.precoProduto}}/u
+        </span>
+        <span *ngIf="card.unidadeMedida != '' || null">
+          Por R${{card.precoProduto}}/{{card.unidadeMedida}}
+        </span>
             Só no {{card.mercado.nome}}
         </p>
     </div>

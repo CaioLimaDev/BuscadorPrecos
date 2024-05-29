@@ -3,6 +3,7 @@ import {NgFor, SlicePipe} from '@angular/common';
 import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {PropsService} from '../../../services/props/props.service';
 import {Produtos} from '../../../services/produtos/produtos.service';
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-card-produtos',
@@ -12,6 +13,7 @@ import {Produtos} from '../../../services/produtos/produtos.service';
     RouterLink,
     RouterOutlet,
     RouterLinkActive,
+    CommonModule,
     SlicePipe
   ],
   templateUrl: './card-produtos.component.html',
