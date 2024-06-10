@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarraBuscaComponent } from './barra-busca.component';
+import { MapaMercadosComponent } from './mapa-mercados.component';
 
-describe('BarraBuscaComponent', () => {
-  let component: BarraBuscaComponent;
-  let fixture: ComponentFixture<BarraBuscaComponent>;
+describe('MapaMercadosComponent', () => {
+  let component: MapaMercadosComponent;
+  let fixture: ComponentFixture<MapaMercadosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BarraBuscaComponent]
+      imports: [MapaMercadosComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BarraBuscaComponent);
+    fixture = TestBed.createComponent(MapaMercadosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

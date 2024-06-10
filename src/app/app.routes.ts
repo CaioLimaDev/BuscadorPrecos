@@ -10,6 +10,5 @@ export const routes: Routes = [
   {path: 'mercados-page', component: PageMercadosComponent, title: 'Mercados'},
   {path: 'produtos-page', component: ProdutosPageComponent, title: 'Produtos'},
   {path: 'item-pagina', component: ItemPaginaComponent, title: 'Item'},
-  {path: 'lista-compras', component: ListaComprasComponent, title: 'ListaCompras'},
-
+  {path: 'lista-compras', component: ListaComprasComponent, title: 'ListaCompras'}
 ];

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {CarrosselComponent} from '../../util/carrosseis/carrossel-imagens/carrossel.component';
-import {CarrosselProdutosComponent} from '../../util/carrosseis/carrossel-produtos/carrossel-produtos.component';
-import {CarrosselMercadosComponent} from '../../util/carrosseis/carrossel-mercados/carrossel-mercados.component';
+import {CarrosselComponent} from '../../componentes/carrosseis/carrossel-imagens/carrossel.component';
+import {CarrosselProdutosComponent} from '../../componentes/carrosseis/carrossel-produtos/carrossel-produtos.component';
+import {CarrosselMercadosComponent} from '../../componentes/carrosseis/carrossel-mercados/carrossel-mercados.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 

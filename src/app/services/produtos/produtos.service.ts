@@ -28,7 +28,7 @@ export interface ProdutosFiltroDTO {
 export class ProdutosService {
 
   urlBase = 'http://localhost:8080/api/produtos';
-  private produtos: Produtos[] = [];
+  produtos: Produtos[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -55,7 +55,6 @@ export class ProdutosService {
         params = params.append('page', filtro.page.toString());
       }
     }
-
     return this.http.get<any>(this.urlBase,{params: params});
   }
 

@@ -1,10 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Mercados, MercadosService } from '../../services/mercados/mercados.service';
-import { NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Produtos, ProdutosFiltroDTO, ProdutosService } from '../../services/produtos/produtos.service';
-import { HeaderComponent } from '../header/header.component';
-import { PaginationService } from '../../services/pagination/pagination.service';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Mercados, MercadosService} from '../../services/mercados/mercados.service';
+import {NgFor} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';
+import {HeaderComponent} from '../header/header.component';
+import {PaginationService} from '../../services/pagination/pagination.service';
 
 @Component({
   selector: 'app-sidebar',

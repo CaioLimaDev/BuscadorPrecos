@@ -1,11 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import { CardProdutosComponent } from '../../util/cards/card-produtos/card-produtos.component';
-import { Produtos, ProdutosService } from '../../services/produtos/produtos.service';
-import { SidebarComponent } from '../../util/sidebar/sidebar.component';
-import { PaginationComponent } from '../../util/pagination/pagination/pagination.component';
-import { CommonModule } from '@angular/common';
-import { PaginationService } from '../../services/pagination/pagination.service';
-import { DataViewModule } from 'primeng/dataview';
+import {Component, Inject} from '@angular/core';
+import {CardProdutosComponent} from '../../componentes/cards/card-produtos/card-produtos.component';
+import {Produtos, ProdutosService} from '../../services/produtos/produtos.service';
+import {SidebarComponent} from '../../componentes/sidebar/sidebar.component';
+import {PaginationComponent} from '../../componentes/pagination/pagination/pagination.component';
+import {CommonModule} from '@angular/common';
+import {PaginationService} from '../../services/pagination/pagination.service';
+import {DataViewModule} from 'primeng/dataview';
 
 @Component({
   selector: 'app-produtos-page',

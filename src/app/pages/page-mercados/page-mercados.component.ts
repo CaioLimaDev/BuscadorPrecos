@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgFor, NgIf} from '@angular/common';
-import {CarrosselProdutosComponent} from '../../util/carrosseis/carrossel-produtos/carrossel-produtos.component';
+import {CarrosselProdutosComponent} from '../../componentes/carrosseis/carrossel-produtos/carrossel-produtos.component';
 import {Categorias, CategoriasService} from '../../services/categorias/categorias.service';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';

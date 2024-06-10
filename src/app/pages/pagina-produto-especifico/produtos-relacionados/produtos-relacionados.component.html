@@ -1,5 +1,14 @@
-<div class="containerProdutos container">
-    <div class="cardProdutosContainer" *ngFor="let produto of produtos?.slice(0,3)">
-        <app-card-produtos-horizontal [card]="produto"></app-card-produtos-horizontal>
-    </div>
+<div class="containerProdutos container justify-content-center">
+  <div class="cardProdutosContainer" *ngFor="let produto of displayedProdutos">
+    <app-card-produtos-horizontal [card]="produto"></app-card-produtos-horizontal>
+  </div>
+  <div class="containerButton">
+    <p-button
+      *ngIf="showMoreButton"
+      (onClick)="verMais()"
+      severity="info"
+      label="Ver Mais"
+    />
+  </div>
 </div>
+
