@@ -1,0 +1,42 @@
+.headerDefault {
+  background-color: #f39b68;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 15px 5px;
+}
+
+.containerBusca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20%;
+  width: 30%;
+  justify-content: center;
+}
+
+.botaoDropdown {
+  background-color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-right: 0;
+  border: 1px solid #3C403D;
+}
+
+.footerDefault {
+  background-color: #f39b68;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.custom-dropdown-toggle::after {
+  display: none !important;
+}
+
+.itensDropdownMercados:hover,
+.itensDropdownCategorias:hover{
+  cursor: pointer;
+}

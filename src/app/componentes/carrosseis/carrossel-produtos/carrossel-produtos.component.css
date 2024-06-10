@@ -1,0 +1,15 @@
+.carousel {
+  width: 100%;
+  margin: 0 auto;
+  border: none !important;
+}
+
+.carousel .p-carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .p-carousel-item .app-card-produtos {
+  width: 100%;
+}

@@ -1,0 +1,23 @@
+<div class="card mb-3" style="width: 700px;" (click)="irParaItemPage(card.id)">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{card.imagem}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{card.nomeProduto}}</h5>
+              <p class="card-text">
+                  Aproveite Agora!! <br>
+                <span *ngIf="card.unidadeMedida === '' || null">
+                  Por R${{card.precoProduto}}/u <br>
+                </span>
+                <span *ngIf="card.unidadeMedida != '' || null">
+                  Por R${{card.precoProduto}}/{{card.unidadeMedida}} <br>
+                </span>
+                  Só no {{card.mercado.nome}}
+              </p>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

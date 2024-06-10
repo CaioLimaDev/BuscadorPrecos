@@ -1,0 +1,19 @@
+<div class="carousel">
+  <p-carousel
+    [value]="mercados"
+    [circular]="false"
+    [responsiveOptions]="responsiveOptions"
+    [numVisible]="Math.min(itemCount,5)"
+    [showIndicators]="false">
+    <ng-template let-mercado pTemplate="item">
+      <app-card-mercados [cards]="mercado"></app-card-mercados>
+      <ng-template pTemplate="previousicon">
+        <i class="pi pi-angle-left"></i>
+      </ng-template>
+
+      <ng-template pTemplate="nexticon" class="nextIcone">
+        <i class="pi pi-chevron-right"></i>
+      </ng-template>
+    </ng-template>
+  </p-carousel>
+</div>

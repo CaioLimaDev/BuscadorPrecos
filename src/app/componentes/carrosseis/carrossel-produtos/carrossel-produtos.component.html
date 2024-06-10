@@ -1,0 +1,13 @@
+<div class="carousel">
+  <p-carousel
+    [value]="produtos"
+    [circular]="false"
+    [responsiveOptions]="responsiveOptions"
+    [numVisible]="Math.min(itemCount, 5)"
+    [numScroll]="5"
+    [showIndicators]="false">
+    <ng-template let-produto pTemplate="item">
+        <app-card-produtos [card]="produto"></app-card-produtos>
+    </ng-template>
+  </p-carousel>
+</div>

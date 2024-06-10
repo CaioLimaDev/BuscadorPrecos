@@ -1,0 +1,19 @@
+<nav class="paginationContainer">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 0">
+      <a class="page-link"  (click)="selecionarPagina(currentPage - 1)">Anterior</a>
+    </li>
+    <li class="page-item" *ngFor="let numeroPagina of paginasVisiveis; let i = index"
+        [class.active]="numeroPagina === currentPage"
+        [class.disabled]="numeroPagina === -1">
+      <a class="page-link"  (click)="selecionarPagina(numeroPagina)" *ngIf="numeroPagina !== -1">
+        {{ numeroPagina + 1 }}
+      </a>
+      <span class="page-link" *ngIf="numeroPagina === -1">...</span>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === numeroPaginas.length - 1">
+      <a class="page-link"  (click)="selecionarPagina(currentPage + 1)">Próximo</a>
+    </li>
+  </ul>
+</nav>
+
