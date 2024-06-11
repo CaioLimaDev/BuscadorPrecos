@@ -1,10 +1,12 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Mercados, MercadosService} from '../../services/mercados/mercados.service';
-import {NgFor} from '@angular/common';
+import {CommonModule, NgFor} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';
 import {HeaderComponent} from '../header/header.component';
 import {PaginationService} from '../../services/pagination/pagination.service';
+import { SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +14,10 @@ import {PaginationService} from '../../services/pagination/pagination.service';
   imports: [
     NgFor,
     FormsModule,
-    HeaderComponent
+    SidebarModule,
+    HeaderComponent,
+    ButtonModule,
+    CommonModule,
   ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
@@ -22,6 +27,8 @@ export class SidebarComponent implements OnInit {
   produtos: Produtos[] = [];
   categorias: string[] = [];
   pageSize: number = 20;
+  sidebarVisible: boolean = false;
+
 
   inputNomeProduto = '';
   inputPrecoFiltro = 0;
@@ -60,10 +67,6 @@ export class SidebarComponent implements OnInit {
 
   getValoresCheckboxSelecionadosCategorias(): any[] {
     return this.categorias.filter((e, i) => this.inputCategorias[i]);
-  }
-
-  getMaiorPrecoPossivel(): number {
-    return this.produtosService.valorMaximoProdutos();
   }
 
   enviarFiltroProdutos(page: number = 0) {

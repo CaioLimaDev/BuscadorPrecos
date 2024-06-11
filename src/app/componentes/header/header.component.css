@@ -40,3 +40,82 @@
 .itensDropdownCategorias:hover{
   cursor: pointer;
 }
+
+.categorias-list,
+.mercados-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  column-gap: 10%;
+  padding: 10px;
+  width: 100%;
+  margin-right: 0;
+  align-items: center;
+}
+
+.dropdownMenuCategorias,
+.dropdownMercados {
+  padding: 1rem 3rem 1rem 1rem;
+  width: fit-content;
+}
+
+.itensDropdownCategorias a,
+.itensDropdownMercados a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* Styles for different screen sizes */
+@media (max-width: 1200px) {
+  .containerBusca {
+    width: 60%;
+  }
+}
+
+@media (max-width: 992px) {
+  .containerBusca {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerDefault {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .logoItem {
+    justify-content: center;
+  }
+
+  .containerBusca {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .dropdownCategoria {
+    flex-direction: column;
+  }
+
+  .categorias-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .categorias-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dropdownMenuCategorias,
+  .dropdownMercados {
+    width: auto;
+  }
+
+  .navbar-toggler {
+    align-self: flex-end;
+  }
+}

@@ -1,29 +1,24 @@
+/* Estilos gerais */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .filtrosContainer{
-    padding: 2rem;
-    float: left;
-    margin-right: 5rem;
-    width: 15%;
+  background-color: white;
+  padding: 20px;
 }
-.mercadosFiltroContainer{
-    border-bottom: 1px solid gray;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    justify-content: center;
+
+.closeButton{
+  right: 0
 }
-.categoriasFiltroContainer{
-    border-bottom: 1px solid gray;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    justify-content: center;
+
+.mercadosFiltroContainer, .categoriasFiltroContainer, .precoFiltroContainer {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid gray;
 }
-.precosFiltroContainer{
-    padding: 1rem;
-    justify-content: center;
-    align-items: center;
-}
-.mercadosFiltro{
-    margin-bottom: 10px;
-}
-.categoriasFiltro{
-    margin-bottom: 10px;
+
+.mercadosFiltro, .categoriasFiltro {
+  margin-bottom: 10px;
 }

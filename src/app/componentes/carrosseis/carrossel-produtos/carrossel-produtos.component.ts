@@ -21,6 +21,8 @@ export class CarrosselProdutosComponent implements OnInit {
   @Input() produtos: Produtos[] = [];
   responsiveOptions: any[] | undefined;
   itemCount: number = 0;
+  navigationResponsive: boolean = true;
+  protected readonly Math = Math;
 
   constructor(private produtosService: ProdutosService) { }
 
@@ -45,15 +47,16 @@ export class CarrosselProdutosComponent implements OnInit {
       {
         breakpoint: '48em',
         numVisible: 2,
-        numScroll: 1
+        numScroll: 1,
       },
       {
         breakpoint: '30em',
         numVisible: 1,
-        numScroll: 1
+        numScroll: 1,
       }
     ];
+    console.log(this.itemCount)
   }
 
-  protected readonly Math = Math;
+
 }

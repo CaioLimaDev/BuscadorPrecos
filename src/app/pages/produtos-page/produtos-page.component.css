@@ -1,13 +1,44 @@
-.paginationComponent{
+/* Estilo da página container */
+.paginaContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+/* Estilo da barra de produtos */
+.produtosContainer {
+  flex: 1;
+  margin-left: 250px; /* Margem à esquerda para compensar a sidebar */
+  padding-top: 5rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+/* Ajustes de layout em telas menores */
+@media (max-width: 768px) {
+
+  .produtosContainer {
+    margin-left: 0; /* Remover a margem em telas pequenas */
+    width: 100%; /* Produtos ocupam a tela toda */
+  }
+
+}
+
+/* Estilo dos produtos */
+.linhasProdutos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.colunasProdutos {
+  margin-bottom: 4rem;
+  box-sizing: border-box;
+}
+
+.paginationComponent {
   display: flex;
   justify-content: flex-end;
-}
-.produtosContainer{
-  padding-top: 5rem;
-}
-.colunasProdutos{
-  margin-bottom: 4rem;
-}
-.sidebarContainer{
-  padding-right: 10rem;
 }

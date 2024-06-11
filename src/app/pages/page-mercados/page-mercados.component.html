@@ -18,9 +18,9 @@
         <app-carrossel-produtos></app-carrossel-produtos>
     </div>
     <div class="ofertas-categorias" *ngFor="let categoria of categorias; let i = index">
-        <h2>Ofertas em {{categoria.categoriaDescricao}}</h2>
-        <ng-container *ngIf="produtosPorCategoria[categoria.categoriaDescricao] && produtosPorCategoria[categoria.categoriaDescricao].length > 0; else semProdutos">
-            <app-carrossel-produtos [produtos]="produtosPorCategoria[categoria.categoriaDescricao]"></app-carrossel-produtos>
+        <h2>Ofertas em {{categoria}}</h2>
+        <ng-container *ngIf="produtosPorCategoria[categoria] && produtosPorCategoria[categoria].length > 0; else semProdutos">
+            <app-carrossel-produtos [produtos]="produtosPorCategoria[categoria]"></app-carrossel-produtos>
             <div style="margin-bottom: 20px;">
                 <a routerLink="../produtos-page" routerLinkActive="active">Ver Mais...</a>
             </div>

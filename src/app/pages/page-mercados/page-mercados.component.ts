@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgFor, NgIf} from '@angular/common';
 import {CarrosselProdutosComponent} from '../../componentes/carrosseis/carrossel-produtos/carrossel-produtos.component';
-import {Categorias, CategoriasService} from '../../services/categorias/categorias.service';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';
 import {Mercados} from '../../services/mercados/mercados.service';
@@ -23,7 +22,7 @@ import {forkJoin} from "rxjs";
   styleUrl: './page-mercados.component.css'
 })
 export class PageMercadosComponent implements OnInit {
-  categorias: Categorias[];
+  categorias: string[] = [];
   produtosPorCategoria: { [key: string]: Produtos[] } = {}
 
   mercado: Mercados = {
@@ -33,11 +32,12 @@ export class PageMercadosComponent implements OnInit {
   };
 
   constructor(
-    private categoriasService: CategoriasService,
     private produtosService: ProdutosService,
     private filtroService: PropsService
   ) {
-    this.categorias = this.categoriasService.getCategorias;
+    this.produtosService.getCategoriasProdutos().subscribe(
+      categorias => this.categorias = categorias
+    )
   }
 
   ngOnInit() {
@@ -52,14 +52,14 @@ export class PageMercadosComponent implements OnInit {
             nomeProduto: '',
             precoProduto: 0,
             mercado: [filtro.nome],
-            categoria: [categoria.categoriaDescricao]
+            categoria: [categoria]
           };
           return this.produtosService.getProdutos(filtroCategoria);
         });
         forkJoin(requests).subscribe(
           resultados => {
             resultados.forEach((produtos, index) => {
-              this.produtosPorCategoria[this.categorias[index].categoriaDescricao] = produtos.result;
+              this.produtosPorCategoria[this.categorias[index]] = produtos.result;
             });
           }
         );

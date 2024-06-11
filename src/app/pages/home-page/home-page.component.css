@@ -1,0 +1,66 @@
+/* Estilos gerais */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.corpoSite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.carrossel {
+  width: 100%;
+}
+
+/* Estilos para a carrosselContainer */
+.carrosselContainer {
+  padding: 6rem;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* Estilos para seções */
+.carrosselMercados, .carrosselProdutos {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 50px;
+}
+
+/* Estilos para tamanhos menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+  .carrosselContainer {
+    padding: 3rem;
+  }
+
+  .carrosselMercados, .carrosselProdutos {
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Estilos para tamanhos menores que 480px (celulares) */
+@media (max-width: 480px) {
+  .carrosselContainer {
+    padding: 2rem;
+  }
+
+  .carrosselMercados, .carrosselProdutos {
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+}

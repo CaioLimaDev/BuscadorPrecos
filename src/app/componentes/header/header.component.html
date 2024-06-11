@@ -3,10 +3,6 @@
 <nav class="headerDefault navbar navbar-expand-lg ">
   <div class="logoItem">
     <button class="btn" routerLink=""><h2 class="navbar-brand"><b>Buscador de <br>Preços</b></h2></button>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </div>
   <div class="containerBusca">
     <app-barra-busca></app-barra-busca>
@@ -19,13 +15,15 @@
               <span class="material-symbols-outlined">sort</span>
             </div>
             <div class="ms-2">
-              Produtos
+              Categorias
             </div>
           </div>
         </button>
         <div class="dropdownMenuCategorias dropdown-menu" aria-labelledby="dropdownMenuButton" [ngClass]="{ 'show': isDropdownOpen === 1 }">
-          <ul *ngFor="let categoria of categorias; let i = index" style="list-style: none;">
-            <li (click)="inserirCategoria([categoria])" class="itensDropdownCategorias"><a>{{categoria.categoriaDescricao}}</a></li>
+          <ul class="categorias-list">
+            <li *ngFor="let categoria of categorias; let i = index" (click)="inserirCategoria(categoria)" class="itensDropdownCategorias">
+              <a>{{categoria}}</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -43,12 +41,11 @@
         </button>
         <div class="dropdownMercados dropdown-menu" aria-labelledby="dropdownMenuButton2"
              [ngClass]="{ 'show': isDropdownOpen === 2 }">
-          <ul *ngFor="let mercado of mercados" style="list-style: none;">
-            <li class="itensDropdownMercados" (click)="irParaMercado(mercado)"><a>{{mercado.nome}}</a></li>
+          <ul class="mercados-list" style="list-style: none;">
+            <li *ngFor="let mercado of mercados" class="itensDropdownMercados" (click)="irParaMercado(mercado)"><a>{{mercado.nome}}</a></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </nav>
-

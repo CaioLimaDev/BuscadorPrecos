@@ -5,8 +5,9 @@
     [responsiveOptions]="responsiveOptions"
     [numVisible]="Math.min(itemCount, 5)"
     [numScroll]="5"
-    [showIndicators]="false">
-    <ng-template let-produto pTemplate="item">
+    [showIndicators]="false"
+    [showNavigators]=navigationResponsive>
+    <ng-template let-produto pTemplate>
         <app-card-produtos [card]="produto"></app-card-produtos>
     </ng-template>
   </p-carousel>

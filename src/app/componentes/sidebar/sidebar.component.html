@@ -1,35 +1,45 @@
-<div class="filtrosContainer">
-  <div class="cabecalhoFiltros">
-    <h6><b>Filtros: </b></h6>
-    <input class="form-control" type="text" placeholder="Buscar" aria-label="Pesquisar"
-           [(ngModel)]="inputNomeProduto" (ngModelChange)="enviarFiltroProdutos()">
-  </div>
-  <div class="mercadosFiltroContainer">
-    <p><b>Mercados: </b></p>
-    <div class="mercadosFiltro form-check" *ngFor="let mercado of mercados; let i = index">
-      <input class="form-check-input" type="checkbox" [value]="mercado.nome" id="flexCheckMercados"
-             [(ngModel)]="inputMercados[i]" (ngModelChange)="enviarFiltroProdutos()">
-      <label class="form-check-label" for="flexCheckMercados">
-        {{ mercado.nome }}
-      </label>
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  showCloseIcon="true"
+  styleClass="sidebarNg">
+  <div class="filtrosContainer">
+    <div class="cabecalhoFiltros">
+      <h6><b>Filtros:</b></h6>
+      <input (ngModelChange)="enviarFiltroProdutos()" [(ngModel)]="inputNomeProduto" aria-label="Pesquisar"
+             class="form-control"
+             placeholder="Buscar" type="text">
+    </div>
+    <div class="mercadosFiltroContainer">
+      <p><b>Mercados:</b></p>
+      <div *ngFor="let mercado of mercados; let i = index" class="mercadosFiltro form-check">
+        <input (change)="enviarFiltroProdutos()" [(ngModel)]="inputMercados[i]" [value]="mercado.nome"
+               class="form-check-input"
+               id="flexCheckMercados" type="checkbox">
+        <label class="form-check-label" for="flexCheckMercados">
+          {{ mercado.nome }}
+        </label>
+      </div>
+    </div>
+    <div class="categoriasFiltroContainer">
+      <p><b>Categorias:</b></p>
+      <div *ngFor="let categoria of categorias; let i = index" class="categoriasFiltro form-check">
+        <input (change)="enviarFiltroProdutos()" [(ngModel)]="inputCategorias[i]" [value]="categoria"
+               class="form-check-input"
+               id="flexCheckCategorias" type="checkbox">
+        <label class="form-check-label" for="flexCheckCategorias">
+          {{ categoria }}
+        </label>
+      </div>
+    </div>
+    <div class="precoFiltroContainer">
+      <label class="form-label" for="customRange2"><b>Filtrar por Preço:</b></label>
+      <input (change)="enviarFiltroProdutos()" [(ngModel)]="inputPrecoFiltro" [max]="100" class="form-range-primary"
+             id="customRange2"
+             min="0" style="width: 100%;"
+             type="range">
+      <input (change)="enviarFiltroProdutos()" [(ngModel)]="inputPrecoFiltro" [max]="100" class="form-control" min="0"
+             style="width: 100%;" type="number">
     </div>
   </div>
-  <div class="categoriasFiltroContainer">
-    <p><b>Categorias: </b></p>
-    <div class="categoriasFiltro form-check" *ngFor="let categoria of categorias; let i = index">
-      <input class="form-check-input" type="checkbox" [value]="categoria" id="flexCheckDefault"
-             [(ngModel)]="inputCategorias[i]" (ngModelChange)="enviarFiltroProdutos()">
-      <label class="form-check-label" for="flexCheckDefault">
-        {{ categoria }}
-      </label>
-    </div>
-  </div>
-  <div class="precoFiltroContainer">
-    <label for="customRange2" class="form-label"><b>Filtrar por Preço:</b> </label>
-    <input type="range" class="form-range-primary" min="0" [max]="getMaiorPrecoPossivel()" id="customRange2"
-           [(ngModel)]="inputPrecoFiltro"
-           (change)="enviarFiltroProdutos()" style="width: 100%;">
-    <input type="number" class="form-control" min="0" [max]="getMaiorPrecoPossivel()" [(ngModel)]="inputPrecoFiltro"
-           (change)="enviarFiltroProdutos()" style="width: 100%;">
-  </div>
-</div>
+</p-sidebar>
+<p-button class="p-button" type="button" (click)="sidebarVisible = true" icon="pi pi-bars" [outlined]="false"/>

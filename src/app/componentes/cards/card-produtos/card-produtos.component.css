@@ -1,28 +1,68 @@
-.card-body{
-    padding: 10px;
-    height: 10rem;
-}
-.card-text{
-  text-align: center;
-}
-.card-title{
+.card-body {
+  padding: 10px;
+  height: auto; /* Altura automática para conteúdo variável */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.card{
-    cursor: pointer;
-    height: 21rem;
-    position: relative;
+.card-text, .card-title {
+  text-align: center;
+  margin: 5px 0;
 }
 
-.cardImg{
+.card {
+  cursor: pointer;
+  height: 21rem; /* Altura fixa */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  margin: 10px; /* Adiciona margem entre os cards */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Adiciona um pequeno zoom no hover */
+}
+
+.cardImg {
   width: 100%;
-  height: 150px;
+  height: 150px; /* Altura fixa */
   object-fit: contain;
+}
+
+/* Ajustes de largura conforme o tamanho da tela */
+@media (max-width: 600px) {
+  .card {
+    width: calc(100% - 20px); /* Ajuste a largura para dispositivos menores */
+  }
 }
 
 @media (min-width: 600px) {
   .card {
     width: 12rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 14rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: 16rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    width: 15rem;
   }
 }

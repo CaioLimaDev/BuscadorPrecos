@@ -2,11 +2,10 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {Mercados, MercadosService} from '../../services/mercados/mercados.service';
-import {Categorias, CategoriasService} from '../../services/categorias/categorias.service';
 import {FormsModule} from '@angular/forms';
 import {PropsService} from '../../services/props/props.service';
 import {BarraBuscaComponent} from './barra-busca/barra-busca.component';
-import {ProdutosFiltroDTO} from '../../services/produtos/produtos.service';
+import {ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';
 
 @Component({
   selector: 'app-header',
@@ -23,30 +22,25 @@ import {ProdutosFiltroDTO} from '../../services/produtos/produtos.service';
 export class HeaderComponent {
 
   mercados: Mercados[] = [];
-  categorias: Categorias[];
-
-  produtosFiltrosDTO: ProdutosFiltroDTO = {
-    categoria: [],
-    nomeProduto: '',
-    mercado: [],
-    precoProduto: 0
-  }
+  categorias: string[] = [];
 
   constructor(
     private mercadosService: MercadosService,
-    private categoriasService: CategoriasService,
+    private produtos: ProdutosService,
     private router: Router,
     private filtroService: PropsService
   ) {
     this.mercadosService.getMercados().subscribe(
       mercados => this.mercados = mercados.result
     );
-    this.categorias = this.categoriasService.getCategorias;
+    this.produtos.getCategoriasProdutos().subscribe(
+      categorias => this.categorias = categorias
+    );
   }
 
-  inserirCategoria(categoria: Categorias[]){
+  inserirCategoria(categoria: string){
     let produtosFiltroDTO: ProdutosFiltroDTO = {
-      categoria: [],
+      categoria: [categoria],
       nomeProduto: '',
       mercado: [],
       precoProduto: 0
