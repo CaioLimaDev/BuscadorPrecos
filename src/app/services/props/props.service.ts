@@ -1,22 +1,30 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, forkJoin, Observable} from 'rxjs';
 import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../produtos/produtos.service';
-import {Mercados} from '../mercados/mercados.service';
+import {MercadoDTO, Mercados, MercadosService} from '../mercados/mercados.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropsService {
-  private filtroMercado = new BehaviorSubject<Mercados>(<Mercados>({id: 0, nome: '',logo: ''}));
+
+  constructor(
+    private produtoService: ProdutosService,
+    private mercadoService: MercadosService,
+  ) { }
+
+  private filtroMercado = new BehaviorSubject<MercadoDTO | null>(null);
   filtroAtualMercado$ = this.filtroMercado.asObservable();
 
   atualizarMercadoDesejado(mercado: Mercados){
-    let mercadoOutput: Mercados = {
-      id: mercado.id,
-      nome: mercado.nome,
-      logo: mercado.logo
-    }
-    this.filtroMercado.next(mercadoOutput)
+    let mercadoOutput: MercadoDTO;
+
+    this.mercadoService.getMercadosPorId(mercado.id).subscribe(
+      mercado => {
+        mercadoOutput = mercado;
+        this.filtroMercado.next(mercadoOutput)
+      }
+    )
   }
 
   private produtoProps = new BehaviorSubject<Produtos | null>(null);
@@ -46,5 +54,5 @@ export class PropsService {
     this.buscarProdutosProps.next(produtosFiltroOutput);
   }
 
-  constructor(private produtoService: ProdutosService) { }
+
 }

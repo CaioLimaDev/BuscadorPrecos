@@ -1,42 +1,89 @@
+.apresentacaoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.titulo {
+  text-align: start;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.conteudoContainer {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.tumbnaisContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Aumentar o espaçamento entre as imagens */
+  align-items: center;
+}
+
+.imagens img {
+  width: 80px; /* Aumentar a largura */
+  height: 80px; /* Aumentar a altura */
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.imagens img:hover {
+  transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+.imagemMaior {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .imagemMaior img {
-    width: 400px;
-    height: 300px;
-    object-fit: contain;
+  max-width: 100%;
+  height: auto;
 }
 
-.apresentacaoContainer{
-    padding: 2rem;
-    display: grid;
+.resumoLateral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: start;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.conteudoContainer{
-    padding: 1rem;
-    grid-column: 1;
-    display: flex; 
+.botaoComparar {
+  width: 100%;
+  max-width: 200px;
 }
 
-.tumbnaisContainer{
-    margin: auto 0;
+@media (max-width: 768px) {
+  .conteudoContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .tumbnaisContainer,
+  .imagemMaior,
+  .resumoLateral {
+    width: 100%;
+  }
 }
 
-.resumoLateral{    
-    grid-column: 2;
-    padding-left: 50px;
+@media (min-width: 768px) and (max-width: 1024px) {
+  .imagens img {
+    width: 70px; /* Ajustar para tamanhos médios */
+    height: 70px;
+  }
 }
 
-.botaoComparar{
-    width: 50%;
-}
-
-.botaoFavoritos{
-    margin-left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    border: 2px solid black;
-}
-
-.imagens{
-    padding-bottom: 20px;
+@media (min-width: 1024px) {
+  .imagens img {
+    width: 80px; /* Tamanho maior para grandes telas */
+    height: 80px;
+  }
 }

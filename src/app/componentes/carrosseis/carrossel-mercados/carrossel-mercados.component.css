@@ -1,11 +1,16 @@
-.carousel{
+/* Container do carrossel */
+.carousel {
+  width: 100%;
+  margin: 0 auto;
   border: none !important;
-}
-.nextIcone{
-  border: none !important;
-  box-shadow: none !important;
 }
 
-.custom-prev-icon:hover, .custom-next-icon:hover {
-  color: darkblue; /* Alterar para a cor desejada ao passar o mouse */
+.carousel .p-carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .p-carousel-item .app-card-produtos {
+  width: 100%;
 }

@@ -1,4 +1,3 @@
-/* Estilo da página container */
 .paginaContainer {
   display: flex;
   flex-wrap: wrap;
@@ -7,27 +6,23 @@
   position: relative;
 }
 
-
-/* Estilo da barra de produtos */
 .produtosContainer {
   flex: 1;
-  margin-left: 250px; /* Margem à esquerda para compensar a sidebar */
+  margin-left: 250px;
   padding-top: 5rem;
   padding-right: 1rem;
   box-sizing: border-box;
 }
 
-/* Ajustes de layout em telas menores */
 @media (max-width: 768px) {
 
   .produtosContainer {
-    margin-left: 0; /* Remover a margem em telas pequenas */
-    width: 100%; /* Produtos ocupam a tela toda */
+    margin-left: 0;
+    width: 100%;
   }
 
 }
 
-/* Estilo dos produtos */
 .linhasProdutos {
   display: flex;
   flex-wrap: wrap;

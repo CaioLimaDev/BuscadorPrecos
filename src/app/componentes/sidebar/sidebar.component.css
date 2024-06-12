@@ -1,24 +1,17 @@
-/* Estilos gerais */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 .filtrosContainer{
   background-color: white;
   padding: 20px;
 }
 
-.closeButton{
-  right: 0
-}
-
-.mercadosFiltroContainer, .categoriasFiltroContainer, .precoFiltroContainer {
+.mercadosFiltroContainer,
+.categoriasFiltroContainer,
+.precoFiltroContainer {
   margin-bottom: 1rem;
   padding: 1rem;
   border-bottom: 1px solid gray;
 }
 
-.mercadosFiltro, .categoriasFiltro {
+.mercadosFiltro,
+.categoriasFiltro {
   margin-bottom: 10px;
 }

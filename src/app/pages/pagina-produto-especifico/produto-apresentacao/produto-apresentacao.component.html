@@ -1,44 +1,17 @@
 <div class="apresentacaoContainer container">
-    <div class="titulo">
-        <h4>{{produto.nomeProduto}}</h4>
+  <div class="titulo">
+    <h4>{{ produto.nomeProduto }}</h4>
+  </div>
+  <div class="conteudoContainer">
+    <div class="imagemMaior col">
+      <img src="{{ produto.imagem }}" class="img-thumbnail img-fluid" alt="Imagem Principal">
     </div>
-    <div class="conteudoContainer">
-        <div class="row">
-            <div class="tumbnaisContainer col-sm-1">
-                <div class="imagens row">
-                    <img src="{{produto.imagem}}" class="rounded img-fluid">
-                </div>
-                <div class="imagens row">
-                    <img src="{{produto.imagem}}" class="rounded img-fluid">
-                </div>
-                <div class="imagens row">
-                    <img src="{{produto.imagem}}" class="rounded img-fluid">
-                </div>
-                <div class="imagens row">
-                    <img src="{{produto.imagem}}" class="rounded img-fluid">
-                </div>
-            </div>
-            <div class="imagemMaior col">
-                <div class="row">
-                    <div class="col">
-                        <img src="{{produto.imagem}}" class="img-thumbnail img-fluid">
-                    </div>
-                </div>
-            </div>
-            <div class="resumoLateral col">
-                <div class="row">
-                    <b>
-                        <p>menor preço via {{produto.mercado.nome}}</p>
-                        <p>R${{produto.precoProduto}}</p>
-                    </b>
-                    <button type="button" class="botaoComparar btn btn-dark">Comparar Preços</button>
-                    <button type="button" class="botaoFavoritos btn">
-                        <span class="material-symbols-outlined">
-                            favorite
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div>
+    <div class="resumoLateral col">
+      <b>
+        <p>Menor preço via {{ produto.mercado.nome }}</p>
+        <p>R${{ produto.precoProduto }}</p>
+      </b>
+      <button type="button" class="botaoComparar btn btn-dark">Comparar Preços</button>
     </div>
+  </div>
 </div>

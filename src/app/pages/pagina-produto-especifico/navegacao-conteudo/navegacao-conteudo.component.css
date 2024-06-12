@@ -1,10 +1,21 @@
-.navegacaoContainer{
-    border-bottom: 1px solid gray;
+.navegacaoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid gray;
 }
-.botoesContainer,
-.botoesContainer button{
-    justify-content: center;
-    margin-right: 5rem;
-    display: flex;
-    padding: 0;    
+
+.botoesContainer {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.botoesContainer button {
+  flex: 1 1 auto;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,46 +1,30 @@
 <div class="paginaContainer">
-    <div class="conteudoSuperiorContainer">
-        <div class="apresentacaoProdutoContainer">
-            <app-produto-apresentacao [produto]="produto"></app-produto-apresentacao>
-        </div>
-        <div class="navegacaoConteudoContainer">
-            <app-navegacao-conteudo></app-navegacao-conteudo>
-        </div>
+  <div class="conteudoSuperiorContainer">
+    <div class="apresentacaoProdutoContainer">
+      <app-produto-apresentacao [produto]="produto"></app-produto-apresentacao>
     </div>
-    <div class="corpoContainer justify-content-center">
-        <div class="produtosRelacionadosContainer" id="relacionados">
-            <app-produtos-relacionados [produtos]="produtosRelacionados"></app-produtos-relacionados>
+  </div>
+  <div class="navegacaoConteudoContainer">
+    <app-navegacao-conteudo></app-navegacao-conteudo>
+  </div>
+  <div class="corpoContainer">
+    <div class="produtosRelacionadosContainer" id="relacionados">
+      <app-produtos-relacionados [produtos]="produtosRelacionados"></app-produtos-relacionados>
+    </div>
+    <div class="infoProdutoContainer container">
+      <div class="row">
+        <div class="col informacoesGerais">
+          <app-informacoes-gerais></app-informacoes-gerais>
         </div>
-        <div class="infoProdutoContainer container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="informacoesGerais">
-                            <app-informacoes-gerais></app-informacoes-gerais>
-                        </div>
-                    </div>
-                    <div class="descCol col" id="descricao-produto">
-                        <div class="descricaoProdutoContainer">
-                            <div class="textoContainer">
-                                <h5>Descrição: </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                    ex ea commodo consequat. Duis aute irure dolor in
-                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    Excepteur
-                                    sint occaecat cupidatat non proident,
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="col descCol" id="descricao-produto">
+          <div class="descricaoProdutoContainer">
+            <div class="textoContainer">
+              <h5>Descrição: </h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
             </div>
+          </div>
         </div>
-      <div class="mapaContainer">
-        <app-mapa-mercados></app-mapa-mercados>
       </div>
     </div>
+  </div>
 </div>
-<router-outlet></router-outlet>

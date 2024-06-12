@@ -1,33 +1,35 @@
 <div class="page-mercados-container">
-    <div class="cardContainer">
-        <div class="card mb-3 rounded border shadow-sm" style="max-width: 450px;">
-            <div class="row g-0">
-                <div class="imageContainer col-md-3">
-                    <img [src]="mercado.logo" class="imgCard img-fluid border-2" alt="logoMercado">
-                </div>
-                <div class="col-md-7 d-flex align-items-center">
-                    <div class="card-body">
-                        <h2 class="card-title">{{mercado.nome}}</h2>
-                    </div>
-                </div>
-            </div>
+  <div class="cardContainer">
+    <div class="card mb-3 rounded border shadow-sm" style="max-width: 450px;">
+      <div class="row g-0">
+        <div class="imageContainer col-md-3">
+          <img [src]="mercado.logo" class="imgCard img-fluid border-2" alt="logoMercado">
         </div>
+        <div class="col-md-7 d-flex align-items-center">
+          <div class="card-body">
+            <h2 class="card-title">{{ mercado.nome }}</h2>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="ofertas">
-        <h2>Melhores Ofertas</h2>
-        <app-carrossel-produtos></app-carrossel-produtos>
-    </div>
-    <div class="ofertas-categorias" *ngFor="let categoria of categorias; let i = index">
-        <h2>Ofertas em {{categoria}}</h2>
-        <ng-container *ngIf="produtosPorCategoria[categoria] && produtosPorCategoria[categoria].length > 0; else semProdutos">
-            <app-carrossel-produtos [produtos]="produtosPorCategoria[categoria]"></app-carrossel-produtos>
-            <div style="margin-bottom: 20px;">
-                <a routerLink="../produtos-page" routerLinkActive="active">Ver Mais...</a>
-            </div>
-        </ng-container>
-        <ng-template #semProdutos>
-            <p>Sem produtos nesta categoria.</p>
-        </ng-template>
-    </div>
+  </div>
+
+  <div class="ofertas">
+    <h2>Melhores Ofertas</h2>
+    <app-carrossel-produtos [produtos]="mercado.produtos"></app-carrossel-produtos>
+  </div>
+
+  <div class="ofertas-categorias" *ngFor="let categoria of categorias">
+    <h2>Ofertas em {{ categoria }}</h2>
+    <ng-container *ngIf="hasProducts(categoria); else semProdutos">
+      <app-carrossel-produtos [produtos]="getProdutosPorCategoria(categoria)" [mercadoSubstituto]="mercado"></app-carrossel-produtos>
+      <div style="margin-bottom: 20px;">
+        <a routerLink="../produtos-page" routerLinkActive="active">Ver Mais...</a>
+      </div>
+    </ng-container>
+    <ng-template #semProdutos>
+      <p>Sem produtos nesta categoria.</p>
+    </ng-template>
+  </div>
 </div>
 <router-outlet></router-outlet>

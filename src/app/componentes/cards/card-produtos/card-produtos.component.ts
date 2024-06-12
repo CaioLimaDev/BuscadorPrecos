@@ -3,6 +3,7 @@ import {CommonModule, NgFor, SlicePipe} from '@angular/common';
 import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {PropsService} from '../../../services/props/props.service';
 import {Produtos} from '../../../services/produtos/produtos.service';
+import {MercadoDTO, Mercados} from "../../../services/mercados/mercados.service";
 
 @Component({
   selector: 'app-card-produtos',
@@ -34,6 +35,13 @@ export class CardProdutosComponent implements OnInit {
     precoProduto: 0,
     unidadeMedida: ""
   };
+
+  @Input() mercadoSubstituto: MercadoDTO | null = {
+    id: 0,
+    nome: '',
+    logo: '',
+    produtos: []
+  }
 
   constructor(
     private router: Router,

@@ -34,24 +34,24 @@ export class CarrosselMercadosComponent {
     )
     this.responsiveOptions = [
       {
-        breakpoint: '96em',
+        breakpoint: '1200px',
         numVisible: 5,
         numScroll: 2
       },
       {
-        breakpoint: '62em',
+        breakpoint: '992px',
         numVisible: 3,
         numScroll: 1
       },
       {
-        breakpoint: '48em',
+        breakpoint: '768px',
         numVisible: 2,
-        numScroll: 1
+        numScroll: 1,
       },
       {
-        breakpoint: '30em',
+        breakpoint: '600px',
         numVisible: 1,
-        numScroll: 1
+        numScroll: 1,
       }
     ];
   }

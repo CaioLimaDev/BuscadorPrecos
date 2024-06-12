@@ -10,7 +10,14 @@
         <span *ngIf="card.unidadeMedida != '' || null">
           Por R${{card.precoProduto}}/{{card.unidadeMedida}}
         </span>
-            Só no {{card.mercado.nome}}
+        <span *ngIf="mercadoSubstituto?.nome ; else buscarPeloProduto">
+          Só no {{mercadoSubstituto?.nome}}
+        </span>
+        <ng-template #buscarPeloProduto>
+          <span>
+            Só no {{card?.mercado?.nome}}
+          </span>
+        </ng-template>
         </p>
     </div>
 </div>

@@ -1,11 +1,19 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Produtos} from "../produtos/produtos.service";
 
 export interface Mercados{
   id: number;
   nome: string;
   logo: string;
+}
+
+export interface MercadoDTO{
+  id: number;
+  nome: string;
+  logo: string;
+  produtos: Produtos[]
 }
 
 @Injectable({
@@ -25,6 +33,12 @@ export class MercadosService {
         }
       }
     )
+  }
+
+  getMercadosPorId(id: number): Observable<MercadoDTO> {
+    return this.http.get<MercadoDTO>(
+      `${this.urlBase}/id/${id}`,
+    );
   }
 
 

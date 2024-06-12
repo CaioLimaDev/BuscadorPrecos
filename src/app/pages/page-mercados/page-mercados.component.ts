@@ -1,11 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {NgFor, NgIf} from '@angular/common';
-import {CarrosselProdutosComponent} from '../../componentes/carrosseis/carrossel-produtos/carrossel-produtos.component';
-import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import {Produtos, ProdutosFiltroDTO, ProdutosService} from '../../services/produtos/produtos.service';
-import {Mercados} from '../../services/mercados/mercados.service';
-import {PropsService} from '../../services/props/props.service';
-import {forkJoin} from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { CarrosselProdutosComponent } from '../../componentes/carrosseis/carrossel-produtos/carrossel-produtos.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Produtos, ProdutosService } from '../../services/produtos/produtos.service';
+import { MercadoDTO } from '../../services/mercados/mercados.service';
+import { PropsService } from '../../services/props/props.service';
 
 @Component({
   selector: 'app-page-mercados',
@@ -19,16 +18,17 @@ import {forkJoin} from "rxjs";
     NgIf
   ],
   templateUrl: './page-mercados.component.html',
-  styleUrl: './page-mercados.component.css'
+  styleUrls: ['./page-mercados.component.css']
 })
 export class PageMercadosComponent implements OnInit {
   categorias: string[] = [];
-  produtosPorCategoria: { [key: string]: Produtos[] } = {}
+  produtosPorCategoria: { [key: string]: Produtos[] } = {};
 
-  mercado: Mercados = {
+  mercado: MercadoDTO = {
     id: 0,
     nome: '',
-    logo: ''
+    logo: '',
+    produtos: []
   };
 
   constructor(
@@ -37,44 +37,37 @@ export class PageMercadosComponent implements OnInit {
   ) {
     this.produtosService.getCategoriasProdutos().subscribe(
       categorias => this.categorias = categorias
-    )
+    );
   }
 
   ngOnInit() {
-    let filtro: Mercados;
-    this.filtroService.filtroAtualMercado$.subscribe(f => {
-      filtro = f;
-      console.log(f)
-      if (filtro) {
-        this.aplicarMercadoSelecionado(filtro);
-        const requests = this.categorias.map(categoria => {
-          let filtroCategoria: ProdutosFiltroDTO = {
-            nomeProduto: '',
-            precoProduto: 0,
-            mercado: [filtro.nome],
-            categoria: [categoria]
-          };
-          return this.produtosService.getProdutos(filtroCategoria);
-        });
-        forkJoin(requests).subscribe(
-          resultados => {
-            resultados.forEach((produtos, index) => {
-              this.produtosPorCategoria[this.categorias[index]] = produtos.result;
-            });
-          }
-        );
-      } else {
-        let mercados: Mercados = {
-          id: 0,
-          nome: '',
-          logo: ''
-        };
-        this.aplicarMercadoSelecionado(mercados);
+    this.filtroService.filtroAtualMercado$.subscribe(mercado => {
+      if (mercado) {
+        this.aplicarMercadoSelecionado(mercado);
+        this.categorizarProdutos(mercado.produtos);
       }
     });
-  };
+  }
 
-  aplicarMercadoSelecionado(mercado: Mercados) {
+  aplicarMercadoSelecionado(mercado: MercadoDTO) {
     this.mercado = mercado;
-  };
+  }
+
+  categorizarProdutos(produtos: Produtos[]) {
+    this.produtosPorCategoria = {};
+    produtos.forEach(produto => {
+      if (!this.produtosPorCategoria[produto.categoria]) {
+        this.produtosPorCategoria[produto.categoria] = [];
+      }
+      this.produtosPorCategoria[produto.categoria].push(produto);
+    });
+  }
+
+  hasProducts(categoria: string): boolean {
+    return this.produtosPorCategoria[categoria] && this.produtosPorCategoria[categoria].length > 0;
+  }
+
+  getProdutosPorCategoria(categoria: string): Produtos[] {
+    return this.produtosPorCategoria[categoria] || [];
+  }
 }

@@ -1,9 +1,8 @@
-<!-- produtos-page.component.html -->
 <div class="paginaContainer">
-  <div class="produtosContainer">
-    <div class="sidebarContainer">
-      <app-sidebar (newFiltroAlterado)="atualizarProdutos($event)"></app-sidebar>
-    </div>
+  <div class="sidebarContainer">
+    <app-sidebar (newFiltroAlterado)="atualizarProdutos($event)"></app-sidebar>
+  </div>
+  <div class="produtosContainer" style="margin-left: 0">
     <div class="grid">
       <div class="linhasProdutos row">
         <div class="colunasProdutos col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of cards">
