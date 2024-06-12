@@ -11,7 +11,7 @@
         <p>Menor preço via {{ produto.mercado.nome }}</p>
         <p>R${{ produto.precoProduto }}</p>
       </b>
-      <button type="button" class="botaoComparar btn btn-dark">Comparar Preços</button>
+      <button type="button" class="botaoComparar btn btn-dark" (click)="scrollToSection('relacionados')">Comparar Preços</button>
     </div>
   </div>
 </div>

@@ -10,4 +10,10 @@ import {Component, Input} from '@angular/core';
 export class ProdutoApresentacaoComponent {
   @Input() produto: any;
 
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
